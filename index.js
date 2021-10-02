@@ -16,8 +16,8 @@ app.use(express.json());
 const pool = mysql.createPool({
   connectionLimit: 10,
   host: "localhost",
-  user: "admin",
-  password: "admin",
+  user: "root",
+  password: "",
   database: "test_gallery",
 });
 
@@ -72,7 +72,7 @@ app.delete("/:id", (req, res) => {
   });
 });
 
-// Delete a project
+// Add a project
 app.post("/", (req, res) => {
   pool.getConnection((err, connection) => {
     if (err) throw err;
@@ -83,12 +83,30 @@ app.post("/", (req, res) => {
     connection.query("INSERT INTO cs SET ? ",params,(err, rows) => {
       connection.release(); //return the connection to pool
       if (!err) {
-        res.send(`Project with Name ${params.name} has be successfully added.`);
+        res.send(`Project with Name ${params.project_name} has be successfully added.`);
       } else {
         console.log(err);
       }
     });
-    console.log(req.body);
+  });
+});
+
+// Update a project
+app.put("/", (req, res) => {
+  pool.getConnection((err, connection) => {
+    if (err) throw err;
+    console.log(`Connected as id ${connection.threadId}`);
+
+    const { id, project_name, project_description, project_likes } = req.body;
+    
+    connection.query("UPDATE cs SET project_name = ?, project_description = ?, project_likes = ? WHERE id = ? ",[project_name, project_description, project_likes, id],(err, rows) => {
+      connection.release(); //return the connection to pool
+      if (!err) {
+        res.send(`Project with Name ${project_name} has be successfully updated.`);
+      } else {
+        console.log(err);
+      }
+    });
   });
 });
 
