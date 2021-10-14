@@ -18,7 +18,7 @@ const pool = mysql.createPool({
   host: "localhost",
   user: "root",
   password: "",
-  database: "test_gallery",
+  database: "demogallery",
 });
 
 // Get all Projects
