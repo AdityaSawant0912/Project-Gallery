@@ -1,7 +1,9 @@
 const express = require("express");
 const mysql = require("mysql");
+const pool = require("./config/db");
 //const bodyParser = require("body-parser"); No Longer Requierd
 require("dotenv").config();
+const projectRouts = require('./routes/projectRouts');
 
 // Decalring App
 const app = express();
@@ -13,13 +15,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 // MySQL
-const pool = mysql.createPool({
-  connectionLimit: 10,
-  host: "localhost",
-  user: "root",
-  password: "",
-  database: "demogallery",
-});
+
 
 // Get all Projects
 app.get("/", (req, res) => {
