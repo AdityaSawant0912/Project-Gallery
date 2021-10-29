@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="project-home.css">
+    <title>Projects</title>
+</head>
+<body>
+    <div class="projects">
+        <h2>All Projects</h2>
+        <% if (count > 0) { %>
+            <% projects.forEach(project => { %> 
+            <div class="project-tiles">
+                <h3><%= project.project_name%> </h3>
+                <p><%= project.project_description %> </p>
+                <h4><%= project.project_created_at %> </h4>
+            </div> 
+            <% }) %> 
+        <% } %> 
+        
+    </div>
+    
+</body>
+</html>

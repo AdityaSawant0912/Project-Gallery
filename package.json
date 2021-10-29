@@ -19,6 +19,7 @@
   "homepage": "https://github.com/AdityaSawant0912/Project-Gallery#readme",
   "dependencies": {
     "body-parser": "^1.19.0",
+    "bootstrap-icons": "^1.6.1",
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
     "ejs": "^3.1.6",

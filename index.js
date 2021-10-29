@@ -5,6 +5,7 @@ const Project = require("./models/Project");
 //const bodyParser = require("body-parser"); No Longer Requierd
 require("dotenv").config();
 const projectRouts = require("./routes/projectRouts");
+const homeRoutes = require("./routes/HomeRoutes")
 
 // Decalring App
 const app = express();
@@ -15,112 +16,11 @@ app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
+//Static Files
+app.use(express.static('public'))
 // Routes
-app.use("/", projectRouts)
-
-
-// // Get all Projects
-// app.get("/", (req, res) => {
-//   pool.getConnection((err, connection) => {
-//     if (err) throw err;
-//     console.log(`Connected as id ${connection.threadId}`);
-
-//     connection.query("SELECT * from cs", (err, rows) => {
-//       connection.release(); //return the connection to pool
-//       if (!err) {
-//         res.send(rows);
-//       } else {
-//         console.log(err);
-//       }
-//     });
-//   });
-// });
-
-// Get Project by id
-// app.get("/:id", (req, res) => {
-//   pool.getConnection((err, connection) => {
-//     if (err) throw err;
-//     console.log(`Connected as id ${connection.threadId}`);
-
-//     connection.query(
-//       "SELECT * from cs WHERE id = ? ",
-//       [req.params.id],
-//       (err, rows) => {
-//         connection.release(); //return the connection to pool
-//         if (!err) {
-//           res.send(rows);
-//         } else {
-//           console.log(err);
-//         }
-//       }
-//     );
-//   });
-// });
-
-// Delete a project
-// app.delete("/:id", (req, res) => {
-//   pool.getConnection((err, connection) => {
-//     if (err) throw err;
-//     console.log(`Connected as id ${connection.threadId}`);
-
-//     connection.query(
-//       "DELETE from cs WHERE id = ? ",
-//       [req.params.id],
-//       (err, rows) => {
-//         connection.release(); //return the connection to pool
-//         if (!err) {
-//           res.send(
-//             `Project with ID ${req.params.id} has be successfully deleted.`
-//           );
-//         } else {
-//           console.log(err);
-//         }
-//       }
-//     );
-//   });
-// });
-
-// Add a project
-// app.post("/", async (req, res) => {
-  
-// });
-
-// Update a project
-// app.put("/", (req, res) => {
-//   pool.getConnection((err, connection) => {
-//     if (err) throw err;
-//     console.log(`Connected as id ${connection.threadId}`);
-
-//     const {
-//       id,
-//       project_name,
-//       project_description,
-//       project_likes,
-//       project_created_at,
-//     } = req.body;
-
-//     connection.query(
-//       "UPDATE cs SET project_name = ?, project_description = ?, project_likes = ?, project_created_at = ?, WHERE id = ? ",
-//       [
-//         project_name,
-//         project_description,
-//         project_likes,
-//         project_created_at,
-//         id,
-//       ],
-//       (err, rows) => {
-//         connection.release(); //return the connection to pool
-//         if (!err) {
-//           res.send(
-//             `Project with Name ${project_name} has be successfully updated.`
-//           );
-//         } else {
-//           console.log(err);
-//         }
-//       }
-//     );
-//   });
-// });
+app.use("/", homeRoutes)
+app.use("/projects", projectRouts)
 
 // Listen on Environment Port or 3000
 app.listen(port, () => console.log(`Listening on port ${port}`));

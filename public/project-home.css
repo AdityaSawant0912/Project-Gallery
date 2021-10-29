@@ -1,0 +1,19 @@
+div{
+    background-color: aquamarine;
+}
+
+.project-tiles{
+    background-color: aqua;
+    height: 300px;
+    width: 300px;
+    border: 1px solid #000000;
+    float: left;
+    margin-left: 40px;
+    margin-right: 40px;
+    margin-bottom: 40px;
+    align-items: center;
+    justify-content: center;
+    text-align:center;
+    text-justify:center;
+    border-radius: 15px;
+}
