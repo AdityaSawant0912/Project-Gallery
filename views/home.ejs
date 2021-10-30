@@ -7,23 +7,24 @@
 </head>
 <body>
     <div class="container">
-        <img class="logo" src="images/SAKEC-LOGO.png "alt=SAKEC-LOGO">
-        <nav>
-            <ul>
-                <li>
-                    <a href="">HOME</a>
-                </li>
-                <li>
-                    <a href="">ADD</a>
-                </li>
-                <li>
-                    <a href="">ABOUT</a>
-                </li>
-            </ul>
-        </nav>
-        <div class="header">
-            <h1>Project Gallery</h1>
-        </div>
+        <%- include('./partials/nav.ejs') %> 
+    
+    </div>
+    <div class='branches'>
+        <br>
+        <h1 class='branch-tag'>All Branches</h1>
+        <a class='branch-tiles', href="projects/">
+            <p class='branch-name'>Computer Engineering</p>
+        </a>
+        <a class='branch-tiles', href="#">
+            <p class='branch-name'>Information Technology</p>
+        </a>
+        <a class='branch-tiles', href="#">
+            <p class='branch-name'>Electrical Engineering</p>
+        </a>
+        <a class='branch-tiles', href="#">
+            <p class='branch-name'>Cyber Security</p>
+        </a>
     </div>
     
 </body>

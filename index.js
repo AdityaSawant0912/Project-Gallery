@@ -22,5 +22,10 @@ app.use(express.static('public'))
 app.use("/", homeRoutes)
 app.use("/projects", projectRouts)
 
+//404
+app.use((req, res) =>{
+    res.status(404).render('404')
+})
+
 // Listen on Environment Port or 3000
 app.listen(port, () => console.log(`Listening on port ${port}`));

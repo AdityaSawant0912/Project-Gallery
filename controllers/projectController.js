@@ -27,10 +27,14 @@ exports.createNewProject = async (req, res) => {
 exports.getProjectById = async (req, res) => {
     try {
         let projectId = req.params.id;
+        console.log(projectId);
         let [project, _] = await Project.findById(projectId);
+        if( project[0]  == null)
+            res.status(404).render('404');
         res.status(200).json({ project: project[0] });
     } catch (error) {
         console.log(error);
+        res.status(404).render('404');
     }
 }
 
