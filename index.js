@@ -5,7 +5,9 @@ const Project = require("./models/Project");
 //const bodyParser = require("body-parser"); No Longer Requierd
 require("dotenv").config();
 const projectRouts = require("./routes/projectRouts");
-const homeRoutes = require("./routes/HomeRoutes")
+const homeRoutes = require("./routes/homeRoutes");
+const adminRoutes = require("./routes/adminRoutes");
+
 
 // Decalring App
 const app = express();
@@ -16,11 +18,13 @@ app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-//Static Files
-app.use(express.static('public'))
 // Routes
 app.use("/", homeRoutes)
+app.use("/admin/", adminRoutes)
 app.use("/projects", projectRouts)
+
+//Static Files
+app.use(express.static('public'))
 
 //404
 app.use((req, res) =>{
