@@ -1,4 +1,8 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
 *{
+    
     margin: 0;
     padding: 0;
     font-family: 'Poppins', sans-serif;
@@ -27,9 +31,12 @@
 
 .branches{
     margin:0 auto;
-    max-width: 68.5714285714rem;
+    align-items: center;
+    max-width: 800px;
     align-items: center;
 }
+
+
 
 .branch-tiles{
     background-color: #333;
@@ -39,14 +46,14 @@
     margin:30px;
     text-align: center;
     align-items: center;
-    float: left;
+    float: none;
     box-sizing: border-box;
     padding: 10px;
     color: #fff;
     border-radius: 6px;
     text-decoration: none;
     justify-content: center;
-    display: flex;
+    display: inline-flex;
 }
 
 .branch-name{
@@ -57,4 +64,13 @@
 
 .branch-tag{
     text-align: center;
+}
+
+#about {
+    padding-top: 200px;
+    margin:0 auto;
+    max-width: 68.5714285714rem;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
 }
