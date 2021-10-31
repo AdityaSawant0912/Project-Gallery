@@ -2,6 +2,7 @@ const express = require("express");
 const mysql = require("mysql");
 const pool = require("./config/db");
 const Project = require("./models/Project");
+const path = require('path')
 //const bodyParser = require("body-parser"); No Longer Requierd
 require("dotenv").config();
 const projectRouts = require("./routes/projectRouts");
@@ -24,7 +25,7 @@ app.use("/admin/", adminRoutes)
 app.use("/projects", projectRouts)
 
 //Static Files
-app.use(express.static('public'))
+app.use(express.static(path.join(__dirname, 'public')))
 
 //404
 app.use((req, res) =>{

@@ -1,4 +1,8 @@
-<img class="logo" src="images/SAKEC-LOGO.png "alt="SAKEC-LOGO">
+<link
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
+  rel="stylesheet"
+/>
+<img class="logo" src="images/SAKEC-LOGO.png " alt="SAKEC-LOGO" />
 <nav>
   <ul>
     <li>
@@ -11,52 +15,60 @@
       <a href="/admin/">ADMIN</a>
     </li>
     <li>
-      <a href="/#departments">DEPARTMENTS</a>
+      <a href="/projects/all">ALL PROJECTS</a>
     </li>
   </ul>
-  <img src="images/search.svg" />
-    <div class="search">
-      <input type="text" name="Search" placeholder="Search" />
+  <div class="search-container">
+    <div class="search-box">
+      <input
+        class="search-txt"
+        type="text"
+        name=""
+        placeholder="Type to search"
+      />
+      <a href="" class="search-btn" style="text-decoration: none">
+        <i class="fas fa-search"></i>
+      </a>
     </div>
+  </div>
 </nav>
 <div class="header">
   <h1>Project Gallery</h1>
 </div>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+  @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
   nav {
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
     display: flex;
     width: 100%;
     align-items: center;
     flex-wrap: wrap;
     padding: 5px 0;
     font-size: 20px;
-}
+  }
 
-nav ul {
+  nav ul {
     flex: 1;
     text-align: right;
     padding-right: 30px;
     padding-top: 15px;
-    
-}
+  }
 
-nav ul li {
+  nav ul li {
     display: inline-block;
     list-style: none;
     margin: 10px 30px;
-}
+  }
 
-nav ul li a {
+  nav ul li a {
     position: relative;
     text-decoration: none;
     color: black;
-}
+  }
 
-nav ul li a::after {
-    content: '';
+  nav ul li a::after {
+    content: "";
     width: 0px;
     height: 3px;
     position: absolute;
@@ -65,21 +77,19 @@ nav ul li a::after {
     transform: translateX(-50%);
     background: black;
     transition: width 0.3s;
-}
+  }
 
-nav ul li a:hover::after
-{
+  nav ul li a:hover::after {
     width: 65%;
-}
+  }
 
-.header
-{
+  .header {
     text-align: center;
     bottom: 8%;
     padding-top: 60px;
     font-size: 22px;
-    color: #24262B;
-}
+    color: #24262b;
+  }
 
   .logo {
     position: absolute;
@@ -87,8 +97,8 @@ nav ul li a:hover::after
     width: 120px;
     cursor: pointer;
   }
-  
-  .search input
+
+  /* .search input
 {
     text-align: center;
     border-bottom: 2px solid black;
@@ -101,7 +111,57 @@ nav ul li a:hover::after
 .search {
     display:flex;
     float: right;
-    /* padding-bottom: 3px; */
-    margin: 10px 25px;
-}
+     padding-bottom: 3px; 
+    margin: 10px 25px; 
+    
+    
+} */
+
+  .search-box {
+    position: center;
+    top: 50%;
+    left: 50%;
+    /* transform: translate(-50%, -50%); */
+    background: white;
+    height: 30px;
+    border-radius: 30px;
+    padding: 10px;
+    text-decoration: none;
+  }
+
+  .search-btn {
+    color: #24262b;
+    float: right;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: #f3f3f3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .search-box:hover > .search-btn {
+    
+    background: #24262b;
+    color: white;
+  }
+
+  .search-box:hover > .search-txt {
+    width: 240px;
+    padding: 0 6px;
+  }
+
+  .search-txt {
+    border: none;
+    background: none;
+    outline: none;
+    float: left;
+    padding: 0;
+    color: #24262b;
+    font-size: 16px;
+    transition: 0.4s;
+    line-height: 30px;
+    width: 0px;
+  }
 </style>

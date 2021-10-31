@@ -1,28 +1,48 @@
 const Project = require("../models/Project");
 
-exports.getAllProject = async (req, res) => {
+exports.getAllProject = async (req, res, next) => {
     try {
         const [projects, _] = await Project.findAllProjects();
-        res.status(200).render("projects/home", { count: projects.length, projects });
-        
+        var title =  'All Projects'
+        res.status(200).render("projects/home", { content_title : title,count: projects.length, projects });
     } catch (error) {
         console.log(error);
+        console.log(next.code);
+        
+        res.status(404).render('404');
     }
 };
 
-exports.createNewProject = async (req, res) => {
-  try {
-    let { project_name, project_description } = req.body;
-    let newProject = new Project(project_name, project_description);
-    newProject = await newProject.save();
-    console.log(newProject);
-    res
-      .status(200)
-      .send(`Project with Name ${project_name} has been successfully Added.`);
-  } catch (error) {
-    console.log(error);
-  }
-};
+exports.getProjectByCategory = async (req, res) => {
+    try {
+        let projectCategory = req.params.category;
+        let [projects, _] = await Project.findByCategory(projectCategory);
+        // if( projects[0]  == null)
+        //     res.status(404).render('404');
+        var title
+        switch (projectCategory) {
+            case 'mini-project':
+                title = 'Mini Projects';
+                break;
+            case 'major-project':
+                title = 'Major Projects';
+                break;
+            case 'out-house-project':
+                title = 'Out House Projects';
+                break;
+        
+            default:
+                break;
+        }
+        res
+        .status(200)
+        .render("projects/home", { content_title : title, count: projects.length, projects })//json({ project: project[0] });
+    } catch (error) {
+        console.log(error);
+        res.status(404).render('404');
+    }
+}
+
 
 exports.getProjectById = async (req, res) => {
     try {
@@ -37,22 +57,5 @@ exports.getProjectById = async (req, res) => {
     }
 }
 
-exports.deleteProjectById = async (req, res) => {
-    try {
-        let projectId = req.params.id;
-        let [project, _] = await Project.deleteById(projectId);
-        res.status(200).send(`Project with Project Id: ${projectId} has been successfully Deleted.`)
-    } catch (error) {
-        console.log(error);
-    }
-}
 
-exports.updateProject = async (req, res) => {
-    try {
-        const { id,project_name, project_description } = req.body;
-        let [project, _] = await Project.updateProject(id, project_name, project_description);
-        res.status(200).send(`Project with Project Id: ${id} has been successfully Updated.`)
-    } catch (error) {
-        console.log(error);
-    }
-}
+

@@ -1,17 +1,20 @@
 const express = require('express')
+const path = require('path')
 const projectController = require('../controllers/projectController');
 
 const router = express.Router();
 router
-    .route("")
+    .route("/all")
     .get(projectController.getAllProject)
-    .post(projectController.createNewProject)
-    .put(projectController.updateProject);
+    
+router.use(express.static('public'))
+router
+    .route("/:category")
+    .get(projectController.getProjectByCategory)
+router.use("/:category/:id",express.static('public'))
 
 router
-    .route("/:id")
-    .delete(projectController.deleteProjectById)
+    .route("/:category/:id")
     .get(projectController.getProjectById);
 
-router.use(express.static('public'))
 module.exports = router;

@@ -42,6 +42,11 @@ class Project {
     return db.execute(sql);
   }
   
+  static findByCategory(category) {
+    let sql = `SELECT * from cs WHERE project_category = '${category}' `;     
+    return db.execute(sql);
+  }
+  
   static deleteById(id) {
     let sql = `DELETE from cs WHERE id = ${id}`
     return db.execute(sql);
