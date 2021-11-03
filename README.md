@@ -11,3 +11,5 @@ git branch -M main
 
 git pull origin main
 
+ git push --set-upstream origin main
+
