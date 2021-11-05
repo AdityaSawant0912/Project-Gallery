@@ -1,6 +1,4 @@
 const express = require("express");
-const mysql = require("mysql");
-const pool = require("./config/db");
 const Project = require("./models/Project");
 const path = require('path')
 //const bodyParser = require("body-parser"); No Longer Requierd
@@ -21,8 +19,12 @@ app.use(express.json());
 
 // Routes
 app.use("/", homeRoutes)
+app.get("/abcd", (req, res) =>{
+    res.send("ABCD");
+})
 app.use("/admin/", adminRoutes)
 app.use("/projects", projectRouts)
+
 
 //Static Files
 app.use(express.static(path.join(__dirname, 'public')))

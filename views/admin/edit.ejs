@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Form</title>
+</head>
+<body>
+    <%- include("../partials/nav.ejs") %> 
+    <h3>Project Form</h3>
+    <form method = "POST" action = "/admin/put">
+        <label for="id">Id </label>
+        <div>
+          <input type="text" name="id" value="<%= id %>">
+        </div>
+ <br>
+     <div>
+        Project Title :  <input type="text" ; name="project_name" value="<%= project_name %>">
+     </div>
+     <br>
+     <label for="category">Category</label>
+     <div>
+     <select name="project_category" id="category" default="<%= project_category %>">
+         
+         <option value="mini-project">Mini Project</option>
+         <option value="major-project">Major Project</option>
+         <option value="out-house-project">Out House Project</option>
+         
+     </select>
+ </div>
+ <br>
+     <label for="year">Year</label>
+     <div>
+     <select name="project_year" id="year" value="<%= project_year %>">
+         
+         <option value=2021>2021</option>
+         <option value=2020>2020</option>
+         <option value=2019>2019</option>
+         <option value=2018>2018</option>
+         <option value=2017>2017</option>
+         <option value=2016>2016</option>
+         
+     </select>
+ </div>
+ <br>
+     <div>
+       Project Abstract :  <br><textarea name="project_abstract"  cols="40"  rows="10" ><%= project_abstract %></textarea>
+     </div>
+     <br>
+     <div>
+       Project Problem Statement :  <br><textarea name="project_problem_statement"  cols="40"  rows="10" ><%= project_problem_statement %></textarea>
+    </div>
+    <br>
+    <div>
+        Project Methodology :  <br><textarea name="project_methodology"  cols="40"  rows="10" ><%= project_methodology %></textarea>
+     </div>
+     <br>
+     <div>
+        Project Objective :  <br><textarea name="project_objective"  cols="40"  rows="10" ><%= project_methodology %></textarea>
+     </div>
+     <br>
+     <div>
+        Project Result :  <br><textarea name="project_results"  cols="40"  rows="10" ><%= project_results %></textarea>
+     </div>
+     <br>
+     <div>
+        Project References :  <br><textarea name="project_references"  cols="40"  rows="10" ><%= project_references %></textarea>
+     </div>
+        <br>
+        <div>
+           Team Members :  <br><textarea   cols="40"  rows="10"></textarea>
+         </div>
+        <br>
+        <div>
+            <!-- <input type="button" class="btn" value="Submit now">
+            <input type="button" class="reset" value="Reset now"> -->
+            <!-- <input type="reset" ; value=" reset now"> -->
+            <button>Submit</button>
+        </div>
+    </form>
+    
+    <%- include("../partials/footer.ejs") %> 
+</body>
+</html>

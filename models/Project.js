@@ -1,10 +1,28 @@
 const db = require("../config/db");
 
 class Project {
-  constructor(project_name, project_description) {
+  constructor(
+    project_name,
+    project_description,
+    project_category,
+    project_abstract,
+    project_problem_statement,
+    project_methodology,
+    project_objective,
+    project_results,
+    project_references,
+    project_year
+  ) {
     this.project_name = project_name;
     this.project_description = project_description;
-    this.project_likes = 0;
+    this.project_category = project_category;
+    this.project_abstract = project_abstract;
+    this.project_problem_statement = project_problem_statement;
+    this.project_methodology = project_methodology;
+    this.project_objective = project_objective;
+    this.project_results = project_results;
+    this.project_references = project_references;
+    this.project_year = project_year;
   }
 
   save() {
@@ -14,49 +32,86 @@ class Project {
     let dd = date.getDate();
 
     let createdAtDate = `${yyyy}-${mm}-${dd}`;
-
     let sql = `
       INSERT INTO cs(
             project_name,
             project_description,
-            project_likes,
+            project_category,
+            project_abstract,
+            project_problem_statement,
+            project_methodology,
+            project_objective,
+            project_results,
+            project_references,
+            project_year,
             project_created_at
+            
         )
         VALUES(
-            '${this.project_name}',
+            '"${this.project_name}',
             '${this.project_description}',
-            '${this.project_likes}',
+            '${this.project_category}',
+            '${this.project_abstract}',
+            '${this.project_problem_statement}',
+            '${this.project_methodology}',
+            '${this.project_objective}',
+            '${this.project_results}',
+            '${this.project_references}',
+            '${this.project_year}',
             '${createdAtDate}'
         )
         `;
+    console.log(`Abstract : ${this.project_abstract}`);
     return db.execute(sql);
   }
-  
-  static findAllProjects(){
+
+  static findAllProjects() {
     let sql = "SELECT * from cs";
+    console.log(db.execute(sql));
     return db.execute(sql);
   }
-  
+
   static findById(id) {
-    let sql = `SELECT * from cs WHERE id = ${id} `;     
+    let sql = `SELECT * from cs WHERE id = ${id} `;
     return db.execute(sql);
   }
-  
+
   static findByCategory(category) {
-    let sql = `SELECT * from cs WHERE project_category = '${category}' `;     
+    let sql = `SELECT * from cs WHERE project_category = '${category}' `;
     return db.execute(sql);
   }
-  
+
   static deleteById(id) {
-    let sql = `DELETE from cs WHERE id = ${id}`
+    let sql = `DELETE from cs WHERE id = ${id}`;
     return db.execute(sql);
   }
-  
-  static updateProject(id, project_name, project_description){
-    let sql = `UPDATE cs SET project_name = '${project_name}', project_description = '${project_description}' WHERE id = ${id} `;
+
+  static updateProject(
+    id,
+    project_name,
+    project_description,
+    project_category,
+    project_abstract,
+    project_problem_statement,
+    project_methodology,
+    project_objective,
+    project_results,
+    project_references,
+    project_year
+  ) {
+    let sql = `UPDATE cs SET
+            project_name = '${project_name}',  
+            project_category = '${project_category}',
+            project_abstract = '${project_abstract}',
+            project_problem_statement = '${project_problem_statement}',
+            project_methodology = '${project_methodology}',
+            project_objective = '${project_objective}',
+            project_results = '${project_results}',
+            project_references = '${project_references}',
+            project_year = ${project_year}
+            WHERE id = ${id}`;
     return db.execute(sql);
   }
-  
 }
 
 module.exports = Project;

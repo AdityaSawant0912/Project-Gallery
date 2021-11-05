@@ -3,9 +3,24 @@ const Project = require('../models/Project');
 exports.getAdminHome = async(req, res) =>{
     try {
         const [projects, _] = await Project.findAllProjects();
-        res.status(200).json({ count: projects.length, projects });//render("projects/home", { count: projects.length, projects });
+        res.status(200).render("admin/home", { count: projects.length, projects });
     } catch (error) {
          console.log(error);
+    }
+}
+
+
+exports.getProjectEdit = async (req, res) =>{
+    try {
+        let projectId = req.params.id;
+        let [project, _] = await Project.findById(projectId);
+        if( project[0]  == null)
+            res.status(404).render('404');
+        else
+            res.status(200).render('admin/edit', project[0]);
+    } catch (error) {
+        console.log(error);
+        res.status(404).render('404');
     }
 }
 
@@ -15,7 +30,19 @@ exports.getProjectById = async (req, res) => {
         let [project, _] = await Project.findById(projectId);
         if( project[0]  == null)
             res.status(404).render('404');
-        res.status(200).render('projects/project', project[0]); //json({ project: project[0] });
+        else
+            res.status(200).render('projects/project', project[0]); //json({ project: project[0] });
+    } catch (error) {
+        console.log(error);
+        res.status(404).render('404');
+    }
+}
+
+exports.getProjectCreate = async (req, res) =>{
+    try {
+        res
+        .status(200)
+        .render('admin/create')
     } catch (error) {
         console.log(error);
         res.status(404).render('404');
@@ -24,13 +51,15 @@ exports.getProjectById = async (req, res) => {
 
 exports.createNewProject = async (req, res) => {
   try {
-    let { project_name, project_description } = req.body;
-    let newProject = new Project(project_name, project_description);
+    console.log(req.body);
+    let { project_name, project_description, project_category, project_abstract, project_problem_statement, project_methodology, project_objective, project_results, project_references, project_year } = req.body;
+    let newProject = new Project(project_name, project_description, project_category, project_abstract, project_problem_statement, project_methodology, project_objective, project_results, project_references, project_year);
     newProject = await newProject.save();
-    console.log(newProject);
+    const [projects, _] = await Project.findAllProjects();
     res
       .status(200)
-      .send(`Project with Name ${project_name} has been successfully Added.`);
+      //.send(`Project with Name ${project_name} has been successfully Added.`);
+      .redirect('/admin')
   } catch (error) {
     console.log(error);
     res.status(404).render('404');
@@ -49,9 +78,29 @@ exports.deleteProjectById = async (req, res) => {
 
 exports.updateProject = async (req, res) => {
     try {
-        const { id,project_name, project_description } = req.body;
-        let [project, _] = await Project.updateProject(id, project_name, project_description);
-        res.status(200).send(`Project with Project Id: ${id} has been successfully Updated.`)
+        const { id,
+    project_name,
+    project_description,
+    project_category,
+    project_abstract,
+    project_problem_statement,
+    project_methodology,
+    project_objective,
+    project_results,
+    project_references,
+    project_year } = req.body;
+        let [project, _] = await Project.updateProject(id,
+    project_name,
+    project_description,
+    project_category,
+    project_abstract,
+    project_problem_statement,
+    project_methodology,
+    project_objective,
+    project_results,
+    project_references,
+    project_year);
+        res.status(200).redirect('/admin')
     } catch (error) {
         console.log(error);
     }
