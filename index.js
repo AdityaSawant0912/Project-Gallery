@@ -1,4 +1,5 @@
 const express = require("express");
+
 const Project = require("./models/Project");
 const path = require('path')
 //const bodyParser = require("body-parser"); No Longer Requierd
@@ -11,6 +12,7 @@ const adminRoutes = require("./routes/adminRoutes");
 // Decalring App
 const app = express();
 const port = process.env.PORT || 3000;
+// console.log(process.env.DB_P);
 app.set("view engine", "ejs");
 
 // For parsing url body
