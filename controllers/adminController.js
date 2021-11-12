@@ -6,6 +6,7 @@ exports.getAdminHome = async(req, res) =>{
         res.status(200).render("admin/home", { count: projects.length, projects });
     } catch (error) {
          console.log(error);
+         res.status(404).render('404');
     }
 }
 
@@ -103,5 +104,6 @@ exports.updateProject = async (req, res) => {
         res.status(200).redirect('/admin')
     } catch (error) {
         console.log(error);
+        res.status(404).render('404');
     }
 }

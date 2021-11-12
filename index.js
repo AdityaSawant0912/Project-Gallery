@@ -19,9 +19,6 @@ app.use(express.json());
 
 // Routes
 app.use("/", homeRoutes)
-app.get("/abcd", (req, res) =>{
-    res.send("ABCD");
-})
 app.use("/admin/", adminRoutes)
 app.use("/projects", projectRouts)
 

@@ -1,6 +1,7 @@
 const express = require('express'); 
 const path = require('path')
 const adminController = require('../controllers/adminController');
+const { route } = require('./projectRouts');
 
 const router = express.Router();
 router.use(express.static('public'))
@@ -8,6 +9,12 @@ router
     .route("")
     .get(adminController.getAdminHome)
     .post(adminController.createNewProject);
+    
+router
+    .route("/abcd")
+    .get((req, res) => {
+        
+    })
     
 
 router
