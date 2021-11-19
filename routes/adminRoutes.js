@@ -28,6 +28,10 @@ router
 router
     .route("/edit/:id")
     .get(adminController.getProjectEdit)
+
+router
+    .route("/delete/:id")
+    .get(adminController.deleteProjectById)
     
 router.use('/edit', express.static('public'))
 router.use(express.static(path.join(__dirname, 'public')))

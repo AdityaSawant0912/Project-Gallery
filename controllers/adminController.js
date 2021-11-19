@@ -71,7 +71,8 @@ exports.deleteProjectById = async (req, res) => {
     try {
         let projectId = req.params.id;
         let [project, _] = await Project.deleteById(projectId);
-        res.status(200).send(`Project with Project Id: ${projectId} has been successfully Deleted.`)
+        //res.status(200).send(`Project with Project Id: ${projectId} has been successfully Deleted.`);
+        res.status(200).redirect('/admin');
     } catch (error) {
         console.log(error);
     }

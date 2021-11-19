@@ -11,14 +11,15 @@
     <%- include('../partials/nav.ejs') %>
     <h2 style="text-align: center">Hello Admin</h2>
     <div class="projects">
+       <div class="project-tiles">
+        <div class="create-new">
+          <a class="create" href="/admin/create">+ New Project </a>
+        </div>
+    </div>
       <% if (count > 0) { %> <% projects.forEach(project => { %>
-      <a
-        class="project-tiles"
-        ,
-        href="edit/<%= project.id %>"
-      >
+      <div class="project-tiles">
         <div class="placeholder-name">
-          <h3><%= project.project_name%></h3>
+          <p class="project-name"><%= project.project_name%></p>
         </div>
         <div class="placeholder-category">
           <h4><%= project.project_category %></h4>
@@ -26,7 +27,13 @@
         <div class="placeholder-date">
           <h4><%= project.project_created_at %></h4>
         </div>
-      </a>
+        <a class="placeholder-button edit" href="edit/<%= project.id %>"
+          >Edit</a
+        >
+        <a class="placeholder-button delete" href="delete/<%= project.id %>"
+          >Delete</a
+        >
+      </div>
       <% }) %> <% } %>
     </div>
 
