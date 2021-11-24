@@ -48,7 +48,7 @@ class Project {
             
         )
         VALUES(
-            '"${this.project_name}',
+            '${this.project_name}',
             '${this.project_description}',
             '${this.project_category}',
             '${this.project_abstract}',
@@ -102,6 +102,7 @@ class Project {
     let sql = `UPDATE cs SET
             project_name = '${project_name}',  
             project_category = '${project_category}',
+            project_description = '${project_description}',
             project_abstract = '${project_abstract}',
             project_problem_statement = '${project_problem_statement}',
             project_methodology = '${project_methodology}',

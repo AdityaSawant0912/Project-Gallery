@@ -1,14 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project Gallery | <%= project_name %> </title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/project-page.css" />
+    <title>Project Gallery | <%= project_name %></title>
+  </head>
+  <body>
     <%- include('../partials/nav.ejs')%>
+
+    <div class="project-content">
+      <div class="project-title">
+        <h1 class="project-title-h1"><%= project_name %></h1>
+      </div>
+      <br />
+      <h2 class="project-sub-title">Description</h2>
+      <p><%= project_description %></p>
+      <h2 class="project-sub-title">Abstract</h2>
+      <p><%= project_abstract %></p>
+      <h2 class="project-sub-title">Problem Statement</h2>
+      <p><%= project_problem_statement %></p>
+
+      <h2 class="project-sub-title">Methodology</h2>
+      <p><%= project_methodology %></p>
+      <h2 class="project-sub-title">Objectives</h2>
+      <p><%= project_objective %></p>
+
+      <h2 class="project-sub-title">Result</h2>
+      <p><%= project_results %></p>
+
+      <h2 class="project-sub-title">References</h2>
+      <p><%= project_references %></p>
+
+      <h2 class="project-sub-title">Achievements</h2>
+      <p>Coming Soon</p>
+
+      <h2 class="project-sub-title">Team Members</h2>
+      <p>Coming Soon</p>
+    </div>
+
     <%- include('../partials/footer.ejs')%>
-    
-</body>
+  </body>
 </html>

@@ -1,0 +1,25 @@
+.project-content{
+    display:flexbox;
+    width: max-content;
+    margin:0px;
+    align-items: center;
+}
+
+.project-title{
+    font-size: 30px;
+    text-align: center;
+    width: max-content;
+    align-self: center;
+    display: flex;
+    box-sizing: border-box;
+    
+}
+.project-title{
+    font-size: 30px;
+    text-align: center;
+    width: max-content;
+    align-self: center;
+    display: flex;
+    box-sizing: border-box;
+    
+}

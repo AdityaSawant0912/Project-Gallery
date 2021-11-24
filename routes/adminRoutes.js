@@ -9,12 +9,7 @@ router
     .route("")
     .get(adminController.getAdminHome)
     .post(adminController.createNewProject);
-    
-router
-    .route("/abcd")
-    .get((req, res) => {
-        
-    })
+
     
 
 router
