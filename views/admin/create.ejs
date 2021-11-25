@@ -10,6 +10,21 @@
   <body>
     <%- include("../partials/nav.ejs") %>
     <h3 class="title-center">Project Form</h3>
+    <h4>Add ProjectImages</h4>
+    <div class="form">
+      <form enctype="multipart/form-data">
+        <input
+          type="file"
+          name="uploadImages"
+          id="uploadImages"
+          accept="image/x-png, image/gif, image/jpeg, image/jpg"
+          multiple
+        />
+        <button type="button" , id="upload-btn">Upload</button>
+      </form>
+      <script src="/scripts/uploadjs.js"></script>
+    </div>
+    <h4>Add Project Data</h4>
     <div class="form">
       <form method="POST" action="/admin">
         <label for="name">NAME </label>
@@ -39,6 +54,10 @@
             <option value="2016">2016</option>
           </select>
         </div>
+        <br />
+        <div>
+          Project Image : <br /><input type="text" id="image" name="project_image"/>
+          </div>
         <br />
         <div>
           Project Description : <br /><textarea

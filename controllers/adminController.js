@@ -1,5 +1,6 @@
 const Project = require("../models/Project");
 
+
 exports.getAdminHome = async (req, res) => {
   try {
     const [projects, _] = await Project.findAllProjects();
@@ -43,9 +44,10 @@ exports.getProjectCreate = async (req, res) => {
   }
 };
 
+
 exports.createNewProject = async (req, res) => {
   try {
-    console.log(req.body);
+
     let {
       project_name,
       project_description,
