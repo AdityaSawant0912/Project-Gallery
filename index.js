@@ -7,7 +7,6 @@ require("dotenv").config();
 const projectRouts = require("./routes/projectRouts");
 const homeRoutes = require("./routes/homeRoutes");
 const adminRoutes = require("./routes/adminRoutes");
-const uploadRoutes = require("./routes/upload");
 
 
 // Decalring App
