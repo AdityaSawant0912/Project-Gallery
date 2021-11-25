@@ -11,6 +11,8 @@ class Project {
     project_objective,
     project_results,
     project_references,
+    project_achivements,
+    project_members,
     project_year
   ) {
     this.project_name = project_name;
@@ -22,6 +24,8 @@ class Project {
     this.project_objective = project_objective;
     this.project_results = project_results;
     this.project_references = project_references;
+    this.project_achivements = project_achivements;
+    this.project_members = project_members;
     this.project_year = project_year;
   }
 
@@ -43,6 +47,8 @@ class Project {
             project_objective,
             project_results,
             project_references,
+            project_achivements,
+            project_members,
             project_year,
             project_created_at
             
@@ -57,11 +63,12 @@ class Project {
             '${this.project_objective}',
             '${this.project_results}',
             '${this.project_references}',
+            '${this.project_achivements}',
+            '${this.project_members}',
             '${this.project_year}',
             '${createdAtDate}'
         )
         `;
-    console.log(`Abstract : ${this.project_abstract}`);
     return db.execute(sql);
   }
 
@@ -97,6 +104,8 @@ class Project {
     project_objective,
     project_results,
     project_references,
+    project_achivements,
+    project_members,
     project_year
   ) {
     let sql = `UPDATE cs SET
@@ -109,6 +118,8 @@ class Project {
             project_objective = '${project_objective}',
             project_results = '${project_results}',
             project_references = '${project_references}',
+            project_achivements = '${project_achivements}',
+            project_members = '${project_members}',
             project_year = ${project_year}
             WHERE id = ${id}`;
     return db.execute(sql);
