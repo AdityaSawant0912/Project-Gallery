@@ -22,7 +22,6 @@ app.use(express.json());
 
 // Routes
 app.use("/", homeRoutes)
-app.use("/upload", uploadRoutes)
 app.use("/admin/", adminRoutes)
 app.use("/projects", projectRouts)
 
