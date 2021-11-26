@@ -4,6 +4,7 @@ class Project {
   constructor(
     project_name,
     project_description,
+    project_image,
     project_category,
     project_abstract,
     project_problem_statement,
@@ -17,6 +18,7 @@ class Project {
   ) {
     this.project_name = project_name;
     this.project_description = project_description;
+    this.project_image = project_image;
     this.project_category = project_category;
     this.project_abstract = project_abstract;
     this.project_problem_statement = project_problem_statement;
@@ -40,6 +42,7 @@ class Project {
       INSERT INTO cs(
             project_name,
             project_description,
+            project_image,
             project_category,
             project_abstract,
             project_problem_statement,
@@ -56,6 +59,7 @@ class Project {
         VALUES(
             '${this.project_name}',
             '${this.project_description}',
+            '${this.project_image}',
             '${this.project_category}',
             '${this.project_abstract}',
             '${this.project_problem_statement}',
@@ -74,7 +78,6 @@ class Project {
 
   static findAllProjects() {
     let sql = "SELECT * from cs";
-    console.log(db.execute(sql));
     return db.execute(sql);
   }
 
@@ -97,6 +100,7 @@ class Project {
     id,
     project_name,
     project_description,
+    project_image,
     project_category,
     project_abstract,
     project_problem_statement,
@@ -112,6 +116,7 @@ class Project {
             project_name = '${project_name}',  
             project_category = '${project_category}',
             project_description = '${project_description}',
+            project_image = '${project_image}',
             project_abstract = '${project_abstract}',
             project_problem_statement = '${project_problem_statement}',
             project_methodology = '${project_methodology}',

@@ -51,6 +51,7 @@ exports.createNewProject = async (req, res) => {
     let {
       project_name,
       project_description,
+      project_image,
       project_category,
       project_abstract,
       project_problem_statement,
@@ -62,9 +63,11 @@ exports.createNewProject = async (req, res) => {
       project_members,
       project_year,
     } = req.body;
+    console.log(project_image);
     let newProject = new Project(
       project_name,
       project_description,
+      project_image,
       project_category,
       project_abstract,
       project_problem_statement,
@@ -113,6 +116,7 @@ exports.updateProject = async (req, res) => {
       id,
       project_name,
       project_description,
+      project_image,
       project_category,
       project_abstract,
       project_problem_statement,
@@ -129,6 +133,7 @@ exports.updateProject = async (req, res) => {
       id,
       project_name,
       project_description,
+      project_image,
       project_category,
       project_abstract,
       project_problem_statement,
