@@ -95,6 +95,11 @@ class Project {
     let sql = `DELETE from cs WHERE id = ${id}`;
     return db.execute(sql);
   }
+  
+  static updateImage(id, project_image){
+    let sql = `UPDATE cs SET project_image = '${project_image}' WHERE id = ${id}`;
+    return db.execute(sql);
+  }
 
   static updateProject(
     id,

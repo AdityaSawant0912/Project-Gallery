@@ -13,7 +13,7 @@ const upload = multer({ storage: storage });
 
 router.post("/", upload.single("image"), (req, res) => {
   console.log("Retriving data");
-  console.log(req.file);
+  // console.log(req.file);
   let images = req.file;
   
   console.log("done");

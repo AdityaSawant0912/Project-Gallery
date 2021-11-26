@@ -2,4 +2,3 @@ node_modules
 .env
 help.txt
 package-lock.json
-uploadImages
