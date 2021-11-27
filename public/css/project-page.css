@@ -6,6 +6,24 @@
 }
 
 .project-title{
+    font-size: 20px;
+    font-family: cursive;
+    text-align: center;
+    width: max-content;
+    align-self: center;
+    display: flex;
+    box-sizing: border-box;   
+}
+.project-sub-title{
+    font-family:cursive
+}
+#area{
+    overflow-wrap: break-word;
+    inline-size: 550px;
+    border-style: solid;
+border-radius: 15px;
+}
+/* .project-title{
     font-size: 30px;
     text-align: center;
     width: max-content;
@@ -13,13 +31,4 @@
     display: flex;
     box-sizing: border-box;
     
-}
-.project-title{
-    font-size: 30px;
-    text-align: center;
-    width: max-content;
-    align-self: center;
-    display: flex;
-    box-sizing: border-box;
-    
-}
+} */

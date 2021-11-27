@@ -1,3 +1,67 @@
+*{
+    /* background-color:lightblue; */
+}
+
+.id{
+    font-size: 18px;
+    padding:4px
+}
+#p_id{
+    width: 200px;
+    height: 22px;
+    border-radius: 5px;
+    border-color: black;
+    padding: 2px;
+
+}
+.title{
+    font-size: 18px;
+    padding:4px;
+}
+
+#p_title{
+    width: 200px;
+    height: 22px;
+    border-radius:5px;
+    border-color: black;
+   padding: 2px;
+}
+.category{
+    font-size: 18px;
+    padding:4px
+}
+#p_category{
+    border-style: solid;
+    width: 180px;
+    height: 28px;
+    border-radius: 5px;
+    border-color: black;
+    padding: 2px;
+}
+.year{
+
+    font-size: 18px;
+    padding:4px
+}
+
+#p_year{
+    border-style: solid;
+    width: 120px;
+    height: 28px;
+    border-radius: 5px;
+    border-color: black;
+    padding: 2px
+}
+.lable-field{
+    align-items: center;
+    font-size: 18px;
+}
+#area{
+    width: 350px;
+    border-radius: 10px;
+    padding: 10px;
+    border-color: black;
+}
 
 .title-center{
 
@@ -30,14 +94,18 @@
     padding: 0px;
 }
 .btn-submit{
-      background-color: blue;
-  border: 10px;
-  color: white;
-  padding: 15px 32px;
+  background-color: gray;
+  font-family: 'Courier New', Courier, monospace;
+  border: 30px;
+  font-weight: bold;
+  color: black;
+  padding: 12px 30px;
   text-align: center;
   text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
+  display: flex;
+  /* float: left; */
+  align-content: center;
+  font-size: 20px;
   margin: 2px 2px;
   cursor: pointer;
   border-radius: 10px
