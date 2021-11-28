@@ -6,11 +6,16 @@ uploadBtn.addEventListener('click', ()=>{
         alert('Please Upload a file');
     }
     else{
-        console.log(input.files[0]);
+        let imgName = Date.now() + '-' + input.files[0].name;
+        // console.log(input.files[0]);
+        let newImage = new File([input.files[0]], `${imgName}`)
+        // console.log(newImage);
         let formData = new FormData();
 
-        formData.append('image', input.files[0])
-
+        formData.append('image', newImage)
+        document.getElementById('image-name').value = imgName;
+        document.getElementById('uploadImages').value = null;
+        document.getElementById('upload-btn').disable = true;
         fetch('/upload', {
             method: 'POST',
             body: formData,
