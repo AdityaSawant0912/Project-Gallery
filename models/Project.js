@@ -4,6 +4,7 @@ class Project {
   constructor(
     project_name,
     project_description,
+    project_image,
     project_category,
     project_abstract,
     project_problem_statement,
@@ -17,6 +18,7 @@ class Project {
   ) {
     this.project_name = project_name;
     this.project_description = project_description;
+    this.project_image = project_image;
     this.project_category = project_category;
     this.project_abstract = project_abstract;
     this.project_problem_statement = project_problem_statement;
@@ -40,6 +42,7 @@ class Project {
       INSERT INTO cs(
             project_name,
             project_description,
+            project_image,
             project_category,
             project_abstract,
             project_problem_statement,
@@ -56,6 +59,7 @@ class Project {
         VALUES(
             '${this.project_name}',
             '${this.project_description}',
+            '${this.project_image}',
             '${this.project_category}',
             '${this.project_abstract}',
             '${this.project_problem_statement}',
@@ -91,11 +95,32 @@ class Project {
     let sql = `DELETE from cs WHERE id = ${id}`;
     return db.execute(sql);
   }
+  
+  static updateImage(id, project_image){
+    let sql = `UPDATE cs SET project_image = '${project_image}' WHERE id = ${id}`;
+    return db.execute(sql);
+  }
+  
+  // static predict(cet_score, minority){ //ABC
+  //   let sql = `SELECT * from colleges_${minority} where cet_score <= ${cet_score} LIMIT 5`
+  //   [colleges, _] = db.execute(sql);
+  //   if(colleges.length >=5){
+  //     return colleges
+  //   }
+  //   // colleges.length = 3;
+  //   else{
+  //     let limit = 5 - colleges.length;
+  //      let sql = `SELECT * from table where cet_score <= ${cet_score} Limit ${limit}`
+  //       [non_minority_colleges, _] = db.execute(sql);
+  //     return colleges.push(non_minority_colleges);
+  //   }
+  // }
 
   static updateProject(
     id,
     project_name,
     project_description,
+    project_image,
     project_category,
     project_abstract,
     project_problem_statement,
@@ -111,6 +136,7 @@ class Project {
             project_name = '${project_name}',  
             project_category = '${project_category}',
             project_description = '${project_description}',
+            project_image = '${project_image}',
             project_abstract = '${project_abstract}',
             project_problem_statement = '${project_problem_statement}',
             project_methodology = '${project_methodology}',

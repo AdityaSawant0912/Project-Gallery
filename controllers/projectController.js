@@ -3,6 +3,7 @@ const Project = require("../models/Project");
 exports.getAllProject = async (req, res, next) => {
     try {
         const [projects, _] = await Project.findAllProjects();
+
         var title =  'All Projects'
         res.status(200).render("projects/home", { content_title : title,count: projects.length, projects });
     } catch (error) {
