@@ -74,7 +74,6 @@ class Project {
 
   static findAllProjects() {
     let sql = "SELECT * from cs";
-    console.log(db.execute(sql));
     return db.execute(sql);
   }
 
