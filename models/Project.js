@@ -100,6 +100,21 @@ class Project {
     let sql = `UPDATE cs SET project_image = '${project_image}' WHERE id = ${id}`;
     return db.execute(sql);
   }
+  
+  // static predict(cet_score, minority){ //ABC
+  //   let sql = `SELECT * from colleges_${minority} where cet_score <= ${cet_score} LIMIT 5`
+  //   [colleges, _] = db.execute(sql);
+  //   if(colleges.length >=5){
+  //     return colleges
+  //   }
+  //   // colleges.length = 3;
+  //   else{
+  //     let limit = 5 - colleges.length;
+  //      let sql = `SELECT * from table where cet_score <= ${cet_score} Limit ${limit}`
+  //       [non_minority_colleges, _] = db.execute(sql);
+  //     return colleges.push(non_minority_colleges);
+  //   }
+  // }
 
   static updateProject(
     id,
