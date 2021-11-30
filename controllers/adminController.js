@@ -63,7 +63,7 @@ exports.createNewProject = (req, res) => {
       project_members,
       project_year,
     } = req.body;
-    console.log(req.body);
+    // console.log(req.body);
     try {
       let imagePath =
         "../Project-Gallery/public/uploadImages/" + `${project_image}`;
@@ -76,7 +76,8 @@ exports.createNewProject = (req, res) => {
         // let newUser = new User(user_name, user_phno ........);
         // newUser.save()
         
-        let colleges = Predictyor
+        
+
 
         let newProject = new Project(
           project_name,

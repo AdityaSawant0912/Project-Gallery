@@ -28,34 +28,16 @@
     padding: 20px;
 }
 #area{
-    color: #F7D455;
-    
+    color: white;
     min-height: 100px;
     
     inline-size: 550px;
     border-style: solid;
-    border-radius: 40px;
     cursor: pointer;
 }
 
-#area p{
-    color: white;
-}
-
-/* #area p:hover{
+#area p:hover{
     
-    color: whi;
+    color: #e91e63;
     transition: 1s;
-} */
-#area:hover{
-    color: white;
-    background-color: #166668;
-    transition: 1s;
-}
-
-.image{
-    width: 100%;
-    height: auto;
-    
-    /* max-height: 700px; */
 }

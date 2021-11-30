@@ -16,60 +16,64 @@
       </div>
       <br />
 
-      <img src = <%= project_image %>  >
-      <br>
+      <img class="image" src="<%=project_image %>"/> 
+      <br />
       <h2 class="project-sub-title">Description</h2>
       <div id="area">
         <p><%= project_description %></p>
       </div>
-      <!-- <p><%= project_description %></p> -->
+      
       <h2 class="project-sub-title">Abstract</h2>
       <div id="area">
         <p><%= project_abstract %></p>
       </div>
-      <!-- <p><%= project_abstract %></p> -->
+      
       <h2 class="project-sub-title">Problem Statement</h2>
       <div id="area">
         <p><%= project_problem_statement %></p>
       </div>
-      <!-- <p><%= project_problem_statement %></p> -->
+      
 
       <h2 class="project-sub-title">Methodology</h2>
       <div id="area">
         <p><%= project_methodology %></p>
       </div>
-      <!-- <p><%= project_methodology %></p> -->
+      
       <h2 class="project-sub-title">Objectives</h2>
       <div id="area">
         <p><%= project_objective %></p>
       </div>
-      <!-- <p><%= project_objective %></p> -->
+      
 
       <h2 class="project-sub-title">Result</h2>
       <div id="area">
         <p><%= project_results %></p>
       </div>
-      <!-- <p><%= project_results %></p> -->
+      
 
       <h2 class="project-sub-title">References</h2>
       <div id="area">
         <p><%= project_references %></p>
       </div>
-      <!-- <p><%= project_references %></p> -->
+      
 
       <h2 class="project-sub-title">Achievements</h2>
       <div id="area">
         <p><%= project_achivements %></p>
       </div>
-      <!-- <p><%= project_achivements %></p> -->
+      
 
       <h2 class="project-sub-title">Team Members</h2>
       <div id="area">
-        <p><%= project_members %></p>
+        <% let members = project_members.split(","); %> 
+        <p><% for(let i = 0; i <= members.length; i++){ %> 
+            <%= members[i] %> 
+            <% if(i!==members.length) {%> 
+              <br>
+            <% }}%></p>
       </div>
-      <!-- <p><%= project_members %></p> -->
     </div>
- <br>
+    <br />
     <%- include('../partials/footer.ejs')%>
   </body>
 </html>
