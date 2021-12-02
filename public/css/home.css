@@ -3,8 +3,8 @@
 
 *{
     
-    /* margin: 0; */
-    /* padding: 0; */
+    margin: 0px;
+    padding: 0;
     font-family: 'Poppins', sans-serif;
 }
 
@@ -17,19 +17,14 @@ body{
     0% {
         transform: scale(3)
     }
-    25%{
-        transform: scale(2)
-    }
-    50% {
-        transform: scale(1)
-    }
-    75%{
-        transform: scale(0.5);
+    80% {
+        transform: scale(0.95)
     }
 }
 
 .container {
-    animation: 2s zoom-out;
+    margin: 1px 0px 0px 10px;
+    animation: 1.5s zoom-out;
     width: 100%;
     min-height: 80vh;
     background-image: url(images/Home-Background.jpg);
@@ -100,3 +95,4 @@ body{
     text-align: center;
     justify-content: center;
 }
+
