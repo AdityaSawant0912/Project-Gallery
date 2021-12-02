@@ -1,7 +1,4 @@
-<link
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
-  rel="stylesheet"
-/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet" />
 <img class="logo" src="images/SAKEC-LOGO.png " alt="SAKEC-LOGO" />
 <nav>
   <ul>
@@ -15,16 +12,17 @@
       <a href="/admin/">ADMIN</a>
     </li>
     <li>
-      <a href="/projects/all">  ALL PROJECTS  </a>
+      <a href="/projects/all"> ALL PROJECTS </a>
     </li>
   </ul>
-  
+
 </nav>
 <div class="header">
   <h1>Project Gallery</h1>
 </div>
 <style>
   @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
   nav {
     font-family: "Poppins", sans-serif;
     display: flex;
@@ -45,7 +43,7 @@
   nav ul li {
     display: inline-block;
     list-style: none;
-    margin: 10px 30px;
+    margin: 0px 15px;
   }
 
   nav ul li a {
@@ -56,18 +54,21 @@
 
   nav ul li a::after {
     content: "";
-    width: 0px;
+    width: 100%;
     height: 3px;
     position: absolute;
     bottom: -2px;
-    left: 50%;
-    transform: translateX(-50%);
+    left: 0%;
+    transform: scaleX(0);
+    /* transform: translateX(-50%); */
     background: #e91e63;
-    transition: width 0.3s;
+    transform-origin: bottom right;
+    transition: transform 0.4s ease-out;
   }
-  
+
   nav ul li a:hover::after {
-    width: 65%;
+    transform: scaleX(1);
+    transform-origin: bottom left;
   }
 
   .header {
@@ -78,7 +79,7 @@
     font-size: 28px;
     color: #24262b;
     text-decoration: underline #e91e63;
-    
+
   }
 
   .logo {
@@ -88,5 +89,4 @@
     width: 120px;
     cursor: pointer;
   }
-
 </style>
