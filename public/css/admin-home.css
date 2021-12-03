@@ -1,123 +1,126 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
-
-*{
-    font-family: 'Poppins', sans-serif;
+* {
+  font-family: "Poppins", sans-serif;
 }
 
-.projects{
-    margin:0 auto;
-    max-width: 975px;
-    align-content: center; 
-    justify-items: center;
-    padding-left: 0px;
-    overflow: hidden;
-    
-    
+.projects {
+  margin: 0 auto;
+  max-width: 975px;
+  align-content: center;
+  justify-items: center;
+  padding-left: 0px;
+  overflow: hidden;
 }
 
-
+.title-head {
+  height: 22px;
+  border-radius: 5px;
+  border-color: black;
+  padding: 2px;
+  text-align: center;
+  text-decoration: underline #e91e63;
+}
 
 /* div{
     background-color:white;
 } */
 
-.project-tiles{
-    display: flex;
-    background-color: #24262B;
-    width: 975px;
-    height:150px;
-    border: 1px solid #24262B;
-    margin:25px;
-    margin-left: 0px;
-    margin-right: 0px;
-    align-items: center;
-    justify-content: center;
-    float: left;
-    box-sizing: border-box;
-    color: #fff;
-    border-radius: 6px;
+.project-tiles {
+  display: flex;
+  background-color: #24262b;
+  width: 975px;
+  height: 150px;
+  border: 1px solid #24262b;
+  margin: 25px;
+  margin-left: 0px;
+  margin-right: 0px;
+  align-items: center;
+  justify-content: center;
+  float: left;
+  box-sizing: border-box;
+  color: #fff;
+  border-radius: 6px;
 
-    display: block;
-    text-decoration: none;
+  display: block;
+  text-decoration: none;
 }
 
-.create-new{
-    width: 950px;
-    height:150px;
-    display: flex;
-    float:left;
-    align-items: center;
-    justify-content: center;
+.create-new {
+  width: 950px;
+  height: 150px;
+  display: flex;
+  float: left;
+  align-items: center;
+  justify-content: center;
 }
 
-.create{
-    text-align: center;
-    text-decoration: none;
-    color:#fff;
-    font-size: 30px;
+.create {
+  text-align: center;
+  text-decoration: none;
+  color: #fff;
+  font-size: 30px;
 }
 
-.placeholder-name{
-    position: relative;
-    width: 400px;
-    margin-left: 30px;
-    /* margin-top: 25px;
+.placeholder-name {
+  position: relative;
+  width: 400px;
+  margin-left: 30px;
+  /* margin-top: 25px;
     margin-bottom: 15px; */
-    margin-right: 10px;
-    align-items: center;
-    text-align: center;
-    justify-content: center;
-    float: left;
+  margin-right: 10px;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  float: left;
 }
 
-.project-name{
-    font-size: 20px;
-    display: flex;
-    width: 400px;
-    height:108px;
-    text-align: center;
-    align-items: center;
-    justify-content: center;
+.project-name {
+  font-size: 20px;
+  display: flex;
+  width: 400px;
+  height: 108px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
 }
-.placeholder-category{
-    position: relative;
-    width: 180px;
-    height:148px;
-    display: flex;
-    margin-right: 10px;
-    align-items: center;
-    text-align: center;
-    justify-content: center;
-    float: left;
+.placeholder-category {
+  position: relative;
+  width: 180px;
+  height: 148px;
+  display: flex;
+  margin-right: 10px;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  float: left;
 }
-.placeholder-date{
-    width: 120px;
-    height:148px;
-     display: flex;
-    margin-right: 10px;
-    align-items: center;
-    text-align: center;
-    justify-content: center;
-    float: left;
-}
-
-.placeholder-button{
-    display: flex;
-    float: left;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    height: 50px;
-    width: 70px;
-    margin:48px 10px 10px 0px;
-    text-decoration: none;
-    
-}
-.edit{
-    color: #fff;
+.placeholder-date {
+  width: 120px;
+  height: 148px;
+  display: flex;
+  margin-right: 10px;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  float: left;
 }
 
-.delete{
-   color: #e91e63
+.placeholder-button {
+  display: flex;
+  float: left;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 50px;
+  width: 70px;
+  margin: 48px 10px 10px 0px;
+  text-decoration: none;
+}
+.edit {
+  color: #fff;
+}
+
+.delete {
+  color: #e91e63;
 }

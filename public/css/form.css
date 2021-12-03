@@ -1,12 +1,9 @@
-*{
-    /* background-color:lightblue; */
+* {
+    font-family: 'Poppins', sans-serif;
 }
 
-.id{
-    font-size: 18px;
-    padding:4px
-}
-#p_id{
+
+#project_name{
     width: 200px;
     height: 22px;
     border-radius: 5px;
@@ -14,10 +11,10 @@
     padding: 2px;
 
 }
-.title{
+/* .title{
     font-size: 18px;
     padding:4px;
-}
+} */
 
 #p_title{
     width: 200px;
@@ -30,7 +27,7 @@
     font-size: 18px;
     padding:4px
 }
-#p_category{
+#category{
     border-style: solid;
     width: 180px;
     height: 28px;
@@ -44,7 +41,7 @@
     padding:4px
 }
 
-#p_year{
+#year{
     border-style: solid;
     width: 120px;
     height: 28px;
@@ -56,7 +53,7 @@
     align-items: center;
     font-size: 18px;
 }
-#area{
+.area{
     width: 350px;
     border-radius: 10px;
     padding: 10px;
@@ -95,7 +92,7 @@
 }
 .btn-submit{
   background-color: gray;
-  font-family: 'Courier New', Courier, monospace;
+  /* font-family: 'Courier New', Courier, monospace; */
   border: 30px;
   font-weight: bold;
   color: black;
