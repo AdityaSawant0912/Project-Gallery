@@ -81,14 +81,14 @@ body{
 }
 
 .category-tag{
-    margin-top: 100px;
+    margin-top: 150px;
     text-align: center;
     text-decoration: underline #e91e63;
 }
 
 #about {
-    padding-top: 200px;
-    padding-bottom: 200px;
+    padding-top: 100px;
+    padding-bottom: 300px;
     margin:0 auto;
     max-width: 68.5714285714rem;
     align-items: center;
