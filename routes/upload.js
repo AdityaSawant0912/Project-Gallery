@@ -1,4 +1,7 @@
 const router = (module.exports = require("express").Router());
+const imgur = require("imgur");
+const fs = require("fs");
+const Project = require("../models/Project");
 
 const multer = require("multer");
 const storage = multer.diskStorage({
@@ -11,11 +14,60 @@ const storage = multer.diskStorage({
 });
 const upload = multer({ storage: storage });
 
-router.post("/", upload.single("image"), (req, res) => {
-  console.log("Retriving data");
-  // console.log(req.file);
-  let images = req.file;
-  
-  console.log("done");
+router.post("/", upload.single("image"), async (req, res) => {
+  console.log(req.body);
+  try {
+    let imageLink;
+    let {
+      project_name,
+      project_description,
+      project_image,
+      project_category,
+      project_abstract,
+      project_problem_statement,
+      project_methodology,
+      project_objective,
+      project_results,
+      project_references,
+      project_achivements,
+      project_members,
+      project_year,
+    } = req.body;
+    try {
+      let imagePath =
+        "../Project-Gallery/public/uploadImages/" + `${project_image}`;
+       imgur.uploadFile(imagePath).then(async (urlObject) => {
+        fs.unlinkSync(imagePath);
+        imageLink = urlObject.link;
+
+        let newProject = new Project(
+          project_name,
+          project_description,
+          imageLink,
+          project_category,
+          project_abstract,
+          project_problem_statement,
+          project_methodology,
+          project_objective,
+          project_results,
+          project_references,
+          project_achivements,
+          project_members,
+          project_year
+        );
+         newProject = newProject.save();
+         
+      });
+    } catch (err) {
+      console.log(err);
+    }
+
+    res
+      .status(200)
+      .redirect("/admin/");
+  } catch (error) {
+    console.log(error);
+    res.status(404).render("404");
+  }
 });
 

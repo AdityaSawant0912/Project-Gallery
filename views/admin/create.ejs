@@ -9,33 +9,25 @@
   </head>
   <body>
     <%- include("../partials/nav.ejs") %>
-    <h3 class="title-center">Project Form</h3>
-    <h4>Add ProjectImages</h4>
+    <h3 class="title-center">Create Form</h3>
+    
     <div class="form">
-      <form enctype="multipart/form-data">
-        <input
-          type="file"
-          name="uploadImages"
-          id="uploadImages"
-          accept="image/x-png, image/gif, image/jpeg, image/jpg"
-          multiple
-        />
-        <button type="button" , id="upload-btn">Upload</button>
-      </form>
-      <script src="/scripts/uploadjs.js"></script>
-    </div>
-    <h4>Add Project Data</h4>
-    <div class="form">
-      <form method="POST" action="/admin">
-        <label for="name">NAME </label>
+      <form enctype="multipart/form-data" action="/admin">
+        <div class="title">Project Title : <input type="text" id="project_name" /></div>
+        <br />
         <div>
-          <input type="text" id="name" />
+          Project Image :
+          <input
+            type="file"
+            name="uploadImages"
+            id="uploadImages"
+            accept="image/x-png, image/gif, image/jpeg, image/jpg"
+            multiple
+          />
         </div>
-        <br />
-        <div>Project Title : <input type="text" ; name="project_name" /></div>
-        <br />
-        <label for="category">Category</label>
+        <br>
         <div>
+          <label for="category" class="category">Category</label>
           <select name="project_category" id="category">
             <option value="mini-project">Mini Project</option>
             <option value="major-project">Major Project</option>
@@ -55,77 +47,96 @@
           </select>
         </div>
         <br />
-        <div>
-          Project Image : <br /><input type="text" id="image-name" name="project_image"/>
-          </div>
-        <br />
-        <div>
-          Project Description : <br /><textarea
-            name="project_description"
+        <div class="text-area">
+          <label for="description" class="lable-field"
+            >Project Description</label>
+            <br />
+            <textarea
+            id="project_description"
             cols="40"
             rows="10"
           ></textarea>
         </div>
         <br />
-        <div>
-          Project Abstract : <br /><textarea
-            name="project_abstract"
+        <div class="text-area">
+          <label for="abstract" class="lable-field">Project Abstract</label>
+          <br />
+          <textarea
+            id="project_abstract"
             cols="40"
             rows="10"
           ></textarea>
         </div>
         <br />
-        <div>
-          Project Problem Statement : <br /><textarea
-            name="project_problem_statement"
+        <div class="text-area">
+          <label for="problem-statement" class="lable-field"
+            >Project Problem Statement</label
+          >
+          <br />
+          <textarea
+            id="project_problem_statement"
             cols="40"
             rows="10"
           ></textarea>
         </div>
         <br />
-        <div>
-          Project Methodology : <br /><textarea
-            name="project_methodology"
+        <div class="text-area">
+          <label for="methodology" class="lable-field"
+            >Project Methodology</label
+          >
+          <br />
+          <textarea
+            id="project_methodology"
             cols="40"
             rows="10"
           ></textarea>
         </div>
         <br />
-        <div>
-          Project Objective : <br /><textarea
-            name="project_objective"
+        <div class="text-area">
+          <label for="objective" class="lable-field">Project Objective</label> 
+          <br />
+          <textarea
+            id="project_objective"
             cols="40"
             rows="10"
           ></textarea>
         </div>
         <br />
-        <div>
-          Project Result : <br /><textarea
-            name="project_results"
+        <div class="text-area">
+          <label for="result" class="lable-field">Project Result</label>
+          <br />
+          <textarea
+            id="project_results"
             cols="40"
             rows="10"
           ></textarea>
         </div>
         <br />
-        <div>
-          Project References : <br /><textarea
-            name="project_references"
+        <div class="text-area">
+          <label for="reference" class="lable-field">Project References</label> 
+          <br />
+          <textarea
+            id="project_references"
             cols="40"
             rows="10"
           ></textarea>
         </div>
         <br />
-        <div>
-          Project Achivemnts : <br /><textarea
-            name="project_achivements"
+        <div class="text-area">
+          <label for="achivements" class="lable-field">Project Achivements</label> 
+          <br />
+          <textarea
+            id="project_achivements"
             cols="40"
             rows="10"
           ></textarea>
         </div>
         <br />
-        <div>
-          Project Members : <br /><textarea
-            name="project_members"
+        <div class="text-area">
+          <label for="members" class="lable-field">Project Members</label>
+          <br />
+          <textarea
+            id="project_members"
             cols="40"
             rows="10"
           ></textarea>
@@ -136,10 +147,11 @@
           <!-- <input type="button" class="btn" value="Submit now">
             <input type="button" class="reset" value="Reset now"> -->
           <!-- <input type="reset" ; value=" reset now"> -->
-          <button>Submit</button>
+          <button class="btn-submit" type="button" id="upload_btn">Submit</button>
         </div>
       </form>
-    </div>
+    </div> 
+    <script src="/scripts/uploadjs.js"></script>
     <%- include("../partials/footer.ejs") %>
   </body>
 </html>

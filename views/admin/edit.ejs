@@ -12,15 +12,10 @@
     <h3 class="title-center" >Project Form</h3>
     <div class="form">
       <form method="POST" action="/admin/put">
-        <div>
-          <label for="id" class ="id">Id : </label>
-          <input type="text" id="p_id"name="id" value="<%= id %>" />
-        </div>
         <br />
         <div class="title">
           Project Title :  
-          <input type="text" id ="p_title"
-            ;
+          <input type="text" id ="project_name"
             name="project_name"
             value="<%= project_name %>"
           />
@@ -30,7 +25,7 @@
           <label for="category" class="category">Category :</label>
           <select
             name="project_category"
-            id="p_category"
+            id="category"
             default="<%= project_category %>"
           >
             <option value="mini-project">Mini Project</option>
@@ -41,7 +36,7 @@
         <br />
         <div>
           <label for="year" class="year">Year :</label>
-          <select name="project_year" id="p_year" value="<%= project_year %>">
+          <select name="project_year" id="year" value="<%= project_year %>">
             <option value="2021">2021</option>
             <option value="2020">2020</option>
             <option value="2019">2019</option>
@@ -55,13 +50,13 @@
           <label for="description" class="lable-field"
             >Project Description</label
           >
-          <textarea name="project_description" id="area" cols="40" rows="10"><%= project_description %></textarea>
+          <textarea name="project_description" class="area" cols="40" rows="10"><%= project_description %></textarea>
         </div>
         <br />
 
         <div class="text-area">
           <label for="abstract" class="lable-field">Project Abstract</label>
-          <textarea name="project_abstract" id ="area" cols="40" rows="10"><%= project_abstract %></textarea
+          <textarea name="project_abstract" class ="area" cols="40" rows="10"><%= project_abstract %></textarea
           >
         </div>
         <br />
@@ -69,7 +64,7 @@
           <label for="problem-statement" class="lable-field"
             >Project Problem Statement</label
           >
-          <textarea name="project_problem_statement" id ="area" cols="40" rows="10"><%= project_problem_statement %></textarea
+          <textarea name="project_problem_statement" class ="area" cols="40" rows="10"><%= project_problem_statement %></textarea
           >
         </div>
         <br />
@@ -77,36 +72,36 @@
           <label for="methodology" class="lable-field"
             >Project Methodology</label
           >
-          <textarea name="project_methodology" id="area"cols="40" rows="10"><%= project_methodology %></textarea
+          <textarea name="project_methodology" class="area"cols="40" rows="10"><%= project_methodology %></textarea
           >
         </div>
         <br />
         <div class="text-area">
           <label for="objective" class="lable-field">Project Objective</label>
-          <textarea name="project_objective" id ="area" cols="40" rows="10"><%= project_methodology %></textarea
+          <textarea name="project_objective" class ="area" cols="40" rows="10"><%= project_methodology %></textarea
           >
         </div>
         <br />
         <div class="text-area">
           <label for="result" class="lable-field">Project Result</label>
-          <textarea name="project_results" id="area"cols="40" rows="10"><%= project_results %></textarea
+          <textarea name="project_results" class="area"cols="40" rows="10"><%= project_results %></textarea
           >
         </div>
         <br />
         <div class="text-area">
           <label for="reference" class="lable-field">Project References</label>
-          <textarea name="project_references" id="area"cols="40" rows="10"><%= project_references %></textarea
+          <textarea name="project_references" class="area"cols="40" rows="10"><%= project_references %></textarea
           >
         </div>
         <br />
         <div class="text-area">
           <label for="achivements" class="lable-field">Project Achivements</label>
-          <textarea name="project_achivements" id="area" cols="40" rows="10"><%= project_achivements %></textarea>
+          <textarea name="project_achivements" class="area" cols="40" rows="10"><%= project_achivements %></textarea>
         </div>
         <br />
         <div class="text-area">
           <label for="members" class="lable-field">Project Members</label>
-          <textarea name="project_members" id ="area"cols="40" rows="10"><%= project_members %></textarea>
+          <textarea name="project_members" class ="area"cols="40" rows="10"><%= project_members %></textarea>
         </div>
         <br />
         <div class="text-area">

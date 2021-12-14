@@ -13,7 +13,6 @@ const uploadRoutes = require("./routes/upload");
 // Decalring App
 const app = express();
 const port = process.env.PORT || 3000;
-// console.log(process.env.DB_P);
 app.set("view engine", "ejs");
 
 // For parsing url body

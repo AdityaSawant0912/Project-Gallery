@@ -10,7 +10,7 @@
   <body>
     <%- include('../partials/nav.ejs') %>
     <div class="projects">
-      <h2 style="text-align: center"><%= content_title %> </h2>
+      <h2 class="title-head"><%= content_title %> </h2>
       <% if (count > 0) { %> <% projects.forEach(project => { %>
       <a class="project-tiles" , href="/projects/<%= project.project_category %>/<%= project.id %>">
         <h3><%= project.project_name%></h3>
