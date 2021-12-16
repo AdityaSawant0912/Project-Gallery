@@ -10,19 +10,19 @@
 }
 
 .project-title{
-    color: white;
-    font-size: 26px;
-    font-weight: 200;
-    
-      
+    color: #e91e63;
+    font-size: 40px;
+    font-weight: 500;
+    text-align: center;
 }
 .project-sub-title{
-    font-family: 'Poppins';
+    font-family: 'Centuar';
     color: #e91e63;
     font-size: 40px;
     
 }
 #area p{
+    font-weight: 200;
     font-size: 20px;
     padding: 20px;
 }
