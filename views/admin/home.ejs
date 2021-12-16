@@ -19,7 +19,7 @@
       <% if (count > 0) { %> <% projects.forEach(project => { %>
       <div class="project-tiles">
         <div class="placeholder-name">
-          <p class="project-name"><%= project.project_name%></p>
+          <a class="project-name" href="/projects/<%= project.project_category %>/<%= project.id %>"><%= project.project_name%></a>
         </div>
         <div class="placeholder-category">
           <h4><%= project.project_category %></h4>

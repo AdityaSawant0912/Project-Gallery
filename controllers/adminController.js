@@ -129,11 +129,11 @@ exports.deleteProjectById = async (req, res) => {
 exports.updateProject = async (req, res) => {
   try {
     const {
-      id,
       project_name,
+      project_category,
+      project_year,
       project_description,
       project_image,
-      project_category,
       project_abstract,
       project_problem_statement,
       project_methodology,
@@ -142,14 +142,12 @@ exports.updateProject = async (req, res) => {
       project_references,
       project_achivements,
       project_members,
-      project_year,
     } = req.body;
-    console.log(project_description);
+    id = req.params.id;
     let [project, _] = await Project.updateProject(
       id,
       project_name,
       project_description,
-      project_image,
       project_category,
       project_abstract,
       project_problem_statement,

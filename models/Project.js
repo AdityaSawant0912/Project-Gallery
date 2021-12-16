@@ -120,7 +120,6 @@ class Project {
     id,
     project_name,
     project_description,
-    project_image,
     project_category,
     project_abstract,
     project_problem_statement,
@@ -132,11 +131,11 @@ class Project {
     project_members,
     project_year
   ) {
+    //console.log(project_members);
     let sql = `UPDATE cs SET
             project_name = '${project_name}',  
             project_category = '${project_category}',
             project_description = '${project_description}',
-            project_image = '${project_image}',
             project_abstract = '${project_abstract}',
             project_problem_statement = '${project_problem_statement}',
             project_methodology = '${project_methodology}',

@@ -33,7 +33,6 @@ uploadBtn.addEventListener("click", () => {
     let project_members = document.getElementById("project_members").value;
     let project_year = document.getElementById("year").value;
     
-    console.log(project_image);
     formData.append("image", newImage);
     formData.append("project_name", project_name);
     formData.append("project_description", project_description);

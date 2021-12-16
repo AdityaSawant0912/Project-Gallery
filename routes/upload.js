@@ -15,7 +15,7 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 
 router.post("/", upload.single("image"), async (req, res) => {
-  console.log(req.body);
+  
   try {
     let imageLink;
     let {
@@ -36,7 +36,7 @@ router.post("/", upload.single("image"), async (req, res) => {
     try {
       let imagePath =
         "../Project-Gallery/public/uploadImages/" + `${project_image}`;
-       imgur.uploadFile(imagePath).then(async (urlObject) => {
+       await imgur.uploadFile(imagePath).then(async (urlObject) => {
         fs.unlinkSync(imagePath);
         imageLink = urlObject.link;
 
@@ -55,7 +55,7 @@ router.post("/", upload.single("image"), async (req, res) => {
           project_members,
           project_year
         );
-         newProject = newProject.save();
+         newProject = await newProject.save();
          
       });
     } catch (err) {

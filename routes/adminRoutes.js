@@ -13,7 +13,7 @@ router
     
 
 router
-    .route("/put")
+    .route("/put/:id")
     .post(adminController.updateProject); 
 
 router

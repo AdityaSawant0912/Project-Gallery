@@ -75,6 +75,7 @@
   float: left;
 }
 
+
 .project-name {
   font-size: 20px;
   display: flex;
@@ -83,6 +84,8 @@
   text-align: center;
   align-items: center;
   justify-content: center;
+  text-decoration: none;
+  color: white;
 }
 .placeholder-category {
   position: relative;
