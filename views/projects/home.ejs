@@ -13,10 +13,10 @@
       <h2 class="title-head"><%= content_title %> </h2>
       <% if (count > 0) { %> <% projects.forEach(project => { %>
       <a class="project-tiles" , href="/projects/<%= project.project_category %>/<%= project.id %>">
-        <h3><%= project.project_name%></h3>
-        <% desc = project.project_description.substring(0, 50); %> 
-        <p><%= desc + '...' %></p>
-        <h4><%= project.project_created_at %></h4>
+        <h3 class="project-name"><%= project.project_name%></h3>
+        <% desc = project.project_description.substring(0, 80); %> 
+        <p class="project-desc"><%= desc + '...' %></p>
+        <h4 class="project-year"><%= project.project_year %></h4>
         
       </a>
       <% }) %> <% } %>
