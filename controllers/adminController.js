@@ -3,6 +3,7 @@ const imgur = require("imgur");
 const fs = require("fs");
 
 exports.getAdminHome = async (req, res) => {
+  console.log("admin home");
   try {
     const [projects, _] = await Project.findAllProjects();
     res.status(200).render("admin/home", { count: projects.length, projects });

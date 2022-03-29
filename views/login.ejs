@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="css/login.css" rel="stylesheet" />
+    <title>Document</title>
+  </head>
+  <body>
+  
+  <div class="flip-container">
+    <div class="flipper" id="flipper">
+	<div class="front">
+	<h1 class="title">Student Login</h1>
+    <form action="/login" method="POST">
+     <input type="text" name="email" id="email" placeholder="Email"/>
+      <input type="text" name="password" id="password" placeholder="Password"/>
+      <input type="hidden" name="role" id="role" value="student" />
+      <button type="submit">Submit</button>
+    </form>
+    <a class="flipbutton" id="loginButton1" href="#">Admin Login →</a>
+	  </div>
+      
+	<div class="back">
+	<h1 class="title">Admin Login</h1>
+    <form action="/login" method="POST">
+      <input type="text" name="email" id="email" placeholder="Email"/>
+      <input type="text" name="password" id="password" placeholder="Passwor"/>
+      <input type="hidden" name="role" id="role" value="admin" />
+      <button type="submit">Submit</button>
+    </form>
+    <a class="flipbutton" id="loginButton2" href="#">Student Login →</a>
+	  </div>
+    </div>
+  </body>
+  
+  <script>
+  var loginButton1 = document.getElementById("loginButton1");
+var loginButton2 = document.getElementById("loginButton2");
+
+loginButton1.onclick = function(){
+	document.querySelector("#flipper").classList.toggle("flip");
+}
+
+loginButton2.onclick = function(){
+	document.querySelector("#flipper").classList.toggle("flip");
+}
+  </script>
+</html>
