@@ -29,15 +29,13 @@ function sessionAuthorized(req, res, next) {
 }
 
 async function adminChecker(req, res, next) {
-  let email = req.cookies.email;
-  let role = await User.getRole(email);
-  console.log("role");
-  console.log(role);
-  console.log(role[0][0].role);
-  if (role[0][0].role == "admin") {
-    console.log("admin");
+  let role = req.session.role;
+  console.log("misc:" + role);
+  if (role == "admin") {
+    console.log("asdasdadmin");
     next()
   }else{
+    console.log('error');
     res.redirect('/')
   }
 }

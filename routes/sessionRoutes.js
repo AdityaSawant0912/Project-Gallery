@@ -6,9 +6,16 @@ const misc = require('../misc');
 
 const router = express.Router();
 router
+    .route("/register/student")
+    .post(misc.sessionAuthorized, sessionController.doRegisterStudent);
+    
+router
+    .route("/register/admin")
+    .post(misc.sessionAuthorized, sessionController.doRegisterAdmin);
+    
+router
     .route("/register")
     .get(misc.sessionAuthorized, sessionController.getRegister)
-    .post(misc.sessionAuthorized, sessionController.doRegister);
 
 router
     .route("/login")

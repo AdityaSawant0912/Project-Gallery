@@ -39,7 +39,7 @@ class Project {
 
     let createdAtDate = `${yyyy}-${mm}-${dd}`;
     let sql = `
-      INSERT INTO cs(
+      INSERT INTO finalProjects(
             project_name,
             project_description,
             project_image,
@@ -77,27 +77,27 @@ class Project {
   }
 
   static findAllProjects() {
-    let sql = "SELECT * from cs";
+    let sql = "SELECT * from finalProjects";
     return db.execute(sql);
   }
 
   static findById(id) {
-    let sql = `SELECT * from cs WHERE id = ${id} `;
+    let sql = `SELECT * from finalProjects WHERE id = ${id} `;
     return db.execute(sql);
   }
 
   static findByCategory(category) {
-    let sql = `SELECT * from cs WHERE project_category = '${category}' `;
+    let sql = `SELECT * from finalProjects WHERE project_category = '${category}' `;
     return db.execute(sql);
   }
 
   static deleteById(id) {
-    let sql = `DELETE from cs WHERE id = ${id}`;
+    let sql = `DELETE from finalProjects WHERE id = ${id}`;
     return db.execute(sql);
   }
   
   static updateImage(id, project_image){
-    let sql = `UPDATE cs SET project_image = '${project_image}' WHERE id = ${id}`;
+    let sql = `UPDATE finalProjects SET project_image = '${project_image}' WHERE id = ${id}`;
     return db.execute(sql);
   }
   
@@ -132,7 +132,7 @@ class Project {
     project_year
   ) {
     //console.log(project_members);
-    let sql = `UPDATE cs SET
+    let sql = `UPDATE finalProjects SET
             project_name = '${project_name}',  
             project_category = '${project_category}',
             project_description = '${project_description}',

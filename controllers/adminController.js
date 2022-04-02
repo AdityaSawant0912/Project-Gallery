@@ -6,7 +6,7 @@ exports.getAdminHome = async (req, res) => {
   console.log("admin home");
   try {
     const [projects, _] = await Project.findAllProjects();
-    res.status(200).render("admin/home", { count: projects.length, projects });
+    res.status(200).render("admin/home", { count: projects.length, projects, loggedin: req.session, role: req.session.role, regNo: req.session.regNo});
   } catch (error) {
     console.log(error);
     res.status(404).render("404");
@@ -18,7 +18,7 @@ exports.getProjectEdit = async (req, res) => {
     let projectId = req.params.id;
     let [project, _] = await Project.findById(projectId);
     if (project[0] == null) res.status(404).render("404");
-    else res.status(200).render("admin/edit", project[0]);
+    else res.status(200).render("admin/edit", {project: project[0], loggedin: req.session, role: req.session.role, regNo: req.session.regNo});
   } catch (error) {
     console.log(error);
     res.status(404).render("404");
@@ -30,7 +30,7 @@ exports.getProjectById = async (req, res) => {
     let projectId = req.params.id;
     let [project, _] = await Project.findById(projectId);
     if (project[0] == null) res.status(404).render("404");
-    else res.status(200).render("projects/project", project[0]); //json({ project: project[0] });
+    else res.status(200).render("projects/project", {project: project, loggedin: req.session, role: req.session.role, regNo: req.session.regNo}); //json({ project: project[0] });
   } catch (error) {
     console.log(error);
     res.status(404).render("404");
@@ -39,7 +39,7 @@ exports.getProjectById = async (req, res) => {
 
 exports.getProjectCreate = async (req, res) => {
   try {
-    res.status(200).render("admin/create");
+    res.status(200).render("admin/create", {loggedin: req.session, role: req.session.role, regNo: req.session.regNo});
   } catch (error) {
     console.log(error);
     res.status(404).render("404");
@@ -160,7 +160,7 @@ exports.updateProject = async (req, res) => {
       project_members,
       project_year
     );
-    res.status(200).redirect("/admin");
+    res.status(200).redirect("/admin"), {loggedin: req.session, role: req.session.role, regNo: req.session.regNo};
   } catch (error) {
     console.log(error);
     res.status(404).render("404");

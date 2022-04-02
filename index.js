@@ -7,6 +7,7 @@ const path = require("path");
 require("dotenv").config();
 const projectRouts = require("./routes/projectRouts");
 const sessionRoutes = require("./routes/sessionRoutes");
+const studentRoutes = require("./routes/studentRoutes");
 const homeRoutes = require("./routes/homeRoutes");
 const adminRoutes = require("./routes/adminRoutes");
 const uploadRoutes = require("./routes/upload");
@@ -30,13 +31,14 @@ app.use(
     saveUninitialized: false,
   })
 );
-
+app.use(express.static(path.join(__dirname, "public")));
 // Routes
 app.use("/", homeRoutes);
 app.use("/", sessionRoutes);
 app.use("/upload", misc.loginChecker, misc.adminChecker, uploadRoutes);
 app.use("/admin/", misc.loginChecker, misc.adminChecker, adminRoutes);
 app.use("/projects", misc.loginChecker, projectRouts);
+app.use("/student", misc.loginChecker, studentRoutes);
 
 //Static Files
 app.use(express.static(path.join(__dirname, "public")));

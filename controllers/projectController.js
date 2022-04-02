@@ -5,7 +5,7 @@ exports.getAllProject = async (req, res, next) => {
         const [projects, _] = await Project.findAllProjects();
 
         var title =  'All Projects'
-        res.status(200).render("projects/home", { content_title : title,count: projects.length, projects });
+        res.status(200).render("projects/home", { content_title : title,count: projects.length, projects, loggedin: req.session, role: req.session.role, regNo: req.session.regNo });
     } catch (error) {
         console.log(error);
         console.log(next.code);
@@ -37,7 +37,7 @@ exports.getProjectByCategory = async (req, res) => {
         }
         res
         .status(200)
-        .render("projects/home", { content_title : title, count: projects.length, projects })//json({ project: project[0] });
+        .render("projects/home", { content_title : title, count: projects.length, projects, loggedin: req.session, role: req.session.role, regNo: req.session.regNo })//json({ project: project[0] });
     } catch (error) {
         console.log(error);
         res.status(404).render('404');
@@ -51,7 +51,7 @@ exports.getProjectById = async (req, res) => {
         let [project, _] = await Project.findById(projectId);
         if( project[0]  == null)
             res.status(404).render('404');
-        res.status(200).render('projects/project', project[0]); //json({ project: project[0] });
+        res.status(200).render('projects/project', {project: project[0], loggedin: req.session, role: req.session.role, regNo: req.session.regNo}); //json({ project: project[0] });
     } catch (error) {
         console.log(error);
         res.status(404).render('404');

@@ -1,28 +1,51 @@
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet" />
-<a href="/"><img class="logo" src="images/SAKEC-LOGO.png " alt="SAKEC-LOGO" /></a>
+<link
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
+  rel="stylesheet"
+/>
+<a href="/"
+  ><img class="logo" src="images/SAKEC-LOGO.png " alt="SAKEC-LOGO"
+/></a>
 <nav>
   <ul>
     <li>
       <a href="/#Categories">CATEGORIES</a>
     </li>
     <li>
+      <a href="/projects/all"> ALL PROJECTS </a>
+    </li>
+    <li>
       <a href="/#about">ABOUT US</a>
     </li>
+    <% if(loggedin && role == 'student') { %>
+    <li>
+      <a href="/student/dashboard/<%= regNo%>">DASHBOARD</a>
+    </li>
+    <li>
+      <a href="/logout">LOGOUT</a>
+    </li>
+    <% } else if(loggedin && role == 'admin') { %>
     <li>
       <a href="/admin/">ADMIN</a>
     </li>
     <li>
-      <a href="/projects/all"> ALL PROJECTS </a>
+      <a href="/logout<%= regNo%>">LOGOUT</a>
     </li>
+    <% } else { %>
+    <li>
+      <a href="/login">LOGIN</a>
+    </li>
+    <li>
+      <a href="/register">REGISTER</a>
+    </li>
+    <% } %>
   </ul>
-
 </nav>
 <div class="header">
   <h1>Project Gallery</h1>
 </div>
 <style>
   @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
-  html{
+  html {
     scroll-behavior: smooth;
   }
   nav {
@@ -81,7 +104,6 @@
     font-size: 20px;
     color: #24262b;
     text-decoration: underline #e91e63;
-
   }
 
   .logo {
