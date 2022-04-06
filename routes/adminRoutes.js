@@ -3,12 +3,26 @@ const path = require('path')
 const adminController = require('../controllers/adminController');
 const { route } = require('./projectRouts');
 
+const fs = require("fs");
+
+
+const multer = require("multer");
+const storage = multer.diskStorage({
+  destination: (req, res, cb) => {
+    cb(null, "./public/uploadImages");
+  },
+  filename: (req, file, cb) => {
+    cb(null, file.originalname);
+  },
+});
+const upload = multer({ storage: storage });
+
 const router = express.Router();
 router.use(express.static('public'))
 router
     .route("")
     .get(adminController.getAdminHome)
-    .post(adminController.createNewProject);
+    .post(upload.single("image"), adminController.createNewProject)
 
     
 

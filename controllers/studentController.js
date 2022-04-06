@@ -13,3 +13,16 @@ exports.getStudentDashboard = async (req, res) => {
         res.status(404).render("404");
     }
 }
+
+exports.getUpload = async (req, res) => {
+    try {
+    res.status(200).render("student/create", {loggedin: req.session, role: req.session.role, regNo: req.session.regNo, action: "/student/upload" });
+  } catch (error) {
+    console.log(error);
+    res.status(404).render("404");
+  }
+}
+
+exports.postUpload = async (req, res) => {
+    
+}

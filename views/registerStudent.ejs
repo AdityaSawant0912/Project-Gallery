@@ -14,8 +14,30 @@
 	<h1 class="title">Student Registeration</h1>
     <form action="/register/student" method="POST">
     <input type="text" name="email" id="email" placeholder="Email"/>
-      <input type="text" name="password" id="password" placeholder="Password"/>
-    <input type="hidden" name="role" id="role" value="student">
+    <input type="text" name="password" id="password" placeholder="Password"/>
+    <input type="text" name="cpassword" id="cpassword" placeholder="Confirm Password" disabled="disabled"/>
+    
+    
+    <input type="text" name="name" id="name" placeholder="Name"/>
+    <input type="text" name="regNo" id="regNo" placeholder="Registeration Number"/>
+    <select name="branch" id="branch" placeholder="Select Branch">
+        <option value="CS">Computer Engginearing</option>
+        <option value="IT">Information Technology</option>
+        <option value="EXTC">EXTC</option>
+        <option value="AI">2018</option>
+    </select>
+    <select name="sem" id="sem" placeholder="Select Semester">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+    </select>
+    
+    
     <button type="submit">Submit</button>
     </form>
 	  </div>

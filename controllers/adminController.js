@@ -2,8 +2,65 @@ const Project = require("../models/Project");
 const imgur = require("imgur");
 const fs = require("fs");
 
-exports.getAdminHome = async (req, res) => {
-  console.log("admin home");
+exports.createNewProject =  async (req, res) => {
+  try {
+    let imageLink;
+    let {
+      project_name,
+      project_description,
+      project_image,
+      project_category,
+      project_abstract,
+      project_problem_statement,
+      project_methodology,
+      project_objective,
+      project_results,
+      project_references,
+      project_achivements,
+      project_members,
+      project_year,
+    } = req.body;
+    try {
+      let imagePath =
+        "../Project-Gallery/public/uploadImages/" + `${project_image}`;
+       await imgur.uploadFile(imagePath).then(async (urlObject) => {
+        fs.unlinkSync(imagePath);
+        imageLink = urlObject.link;
+
+        let newProject = new Project(
+          project_name,
+          project_description,
+          imageLink,
+          project_category,
+          project_abstract,
+          project_problem_statement,
+          project_methodology,
+          project_objective,
+          project_results,
+          project_references,
+          project_achivements,
+          project_members,
+          project_year
+        );
+         newProject = await newProject.save();
+         
+      });
+    } catch (err) {
+      console.log(err);
+    }
+
+    res
+      .status(200)
+      .redirect("/admin/");
+  } catch (error) {
+    console.log(error);
+    res.status(404).render("404");
+  }
+}
+
+
+
+exports.getAdminHome = async (req, res) => {  
   try {
     const [projects, _] = await Project.findAllProjects();
     res.status(200).render("admin/home", { count: projects.length, projects, loggedin: req.session, role: req.session.role, regNo: req.session.regNo});
@@ -39,78 +96,14 @@ exports.getProjectById = async (req, res) => {
 
 exports.getProjectCreate = async (req, res) => {
   try {
-    res.status(200).render("admin/create", {loggedin: req.session, role: req.session.role, regNo: req.session.regNo});
+    res.status(200).render("admin/create", { loggedin: req.session, role: req.session.role, regNo: req.session.regNo, action: "/admin" });
   } catch (error) {
     console.log(error);
     res.status(404).render("404");
   }
 };
 
-exports.createNewProject = (req, res) => {
-  try {
-    let imageLink;
-    let {
-      project_name,
-      project_description,
-      project_image,
-      project_category,
-      project_abstract,
-      project_problem_statement,
-      project_methodology,
-      project_objective,
-      project_results,
-      project_references,
-      project_achivements,
-      project_members,
-      project_year,
-    } = req.body;
-    // console.log(req.body);
-    try {
-      let imagePath =
-        "../Project-Gallery/public/uploadImages/" + `${project_image}`;
-      imgur.uploadFile(imagePath).then((urlObject) => {
-        fs.unlinkSync(imagePath);
-        // console.log(urlObject);
-        imageLink = urlObject.link;
-        
-        // let ifUserPresent = ifUserPresent(user_email);
-        // let newUser = new User(user_name, user_phno ........);
-        // newUser.save()
-        
-        
 
-
-        let newProject = new Project(
-          project_name,
-          project_description,
-          imageLink,
-          project_category,
-          project_abstract,
-          project_problem_statement,
-          project_methodology,
-          project_objective,
-          project_results,
-          project_references,
-          project_achivements,
-          project_members,
-          project_year
-        );
-         newProject = newProject.save();
-         
-      });
-    } catch (err) {
-      console.log(err);
-    }
-
-    res
-      .status(200)
-      //.send(`Project with Name ${project_name} has been successfully Added.`);
-      .redirect("/admin/");
-  } catch (error) {
-    console.log(error);
-    res.status(404).render("404");
-  }
-};
 
 exports.deleteProjectById = async (req, res) => {
   try {

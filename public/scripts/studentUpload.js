@@ -48,7 +48,7 @@ uploadBtn.addEventListener("click", () => {
     formData.append("project_members", project_members);
     formData.append("project_year", project_year);
     document.getElementById("uploadImages").value = null;
-    fetch("/admin", {
+    fetch("/student/upload", {
       method: "POST",
       body: formData,
     })
