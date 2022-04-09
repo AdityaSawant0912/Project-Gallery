@@ -6,25 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/admin-home.css" />
     <title>Project Gallery | Admin</title>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
   </head>
   <body>
     <%- include('../partials/nav.ejs') %>
     <h2 class="title-head">Hello Admin</h2>
+    
     <div class="projects">
-       <div class="project-tiles">
-        <div class="create-new">
-          <a class="create" href="/admin/create">+ New Project </a>
-        </div>
-        </div>
-        <div class="project-tiles">
-        <div class="create-new">
-          <a class="create" href="/admin/pending">Pending Aprovals </a>
-        </div>
-    </div>
       <% if (count > 0) { %> <% projects.forEach(project => { %>
       <div class="project-tiles">
         <div class="placeholder-name">
-          <a class="project-name" href="/projects/<%= project.project_category %>/<%= project.id %>"><%= project.project_name%></a>
+          <a class="project-name" href="/admin/pending/<%= project.id %>"><%= project.project_name%></a>
         </div>
         <div class="placeholder-category">
           <h4><%= project.project_category %></h4>
@@ -32,11 +24,12 @@
         <div class="placeholder-date">
           <h4><%= project.project_created_at %></h4>
         </div>
-        <a class="placeholder-button edit" href="edit/<%= project.id %>"
-          >Edit</a
+        <a class="placeholder-button edit" href="remark/<%= project.id %>"
+          >+ Remark</a
         >
-        <a class="placeholder-button delete" href="delete/<%= project.id %>"
-          >Delete</a
+        
+        <a class="placeholder-button delete" href="approve/<%= project.id %>"
+          >Approve</a
         >
       </div>
       <% }) %> <% } %>

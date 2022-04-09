@@ -13,7 +13,9 @@ class Project {
     project_results,
     project_references,
     project_achivements,
+    project_mentor,
     project_members,
+    project_members_name,
     project_year
   ) {
     this.project_name = project_name;
@@ -27,11 +29,13 @@ class Project {
     this.project_results = project_results;
     this.project_references = project_references;
     this.project_achivements = project_achivements;
+    this.project_mentor = project_mentor;
     this.project_members = project_members;
+    this.project_members_name = project_members_name;
     this.project_year = project_year;
   }
 
-  save() {
+  async save() {
     let date = new Date();
     let yyyy = date.getFullYear();
     let mm = date.getMonth() + 1;
@@ -51,7 +55,9 @@ class Project {
             project_results,
             project_references,
             project_achivements,
+            project_mentor,
             project_members,
+            project_members_name,
             project_year,
             project_created_at
             
@@ -68,12 +74,27 @@ class Project {
             '${this.project_results}',
             '${this.project_references}',
             '${this.project_achivements}',
+            '${this.project_mentor}',
             '${this.project_members}',
+            '${this.project_members_name}',
             '${this.project_year}',
             '${createdAtDate}'
-        )
+        );
         `;
-    return db.execute(sql);
+    try {
+      await db.execute(sql);
+      let [[id], _] = await db.execute(`SELECT id from finalProjects ORDER BY id DESC LIMIT 1`);
+      console.log(id.id);
+      let members = this.project_members.split(",");
+      for(let i = 0; i < members.length; i++){
+        let sql = `INSERT INTO projectholdby(id, regNo) VALUES(${id.id}, ${members[i]})`;
+        db.execute(sql);
+      }
+      return true;
+    } catch (error) {
+      console.log(error);
+      return false;
+    }
   }
 
   static findAllProjects() {
@@ -92,29 +113,16 @@ class Project {
   }
 
   static deleteById(id) {
+    let del = `DELETE from projectholdby WHERE id = ${id}`;
+    db.execute(del);
     let sql = `DELETE from finalProjects WHERE id = ${id}`;
     return db.execute(sql);
   }
-  
-  static updateImage(id, project_image){
+
+  static updateImage(id, project_image) {
     let sql = `UPDATE finalProjects SET project_image = '${project_image}' WHERE id = ${id}`;
     return db.execute(sql);
   }
-  
-  // static predict(cet_score, minority){ //ABC
-  //   let sql = `SELECT * from colleges_${minority} where cet_score <= ${cet_score} LIMIT 5`
-  //   [colleges, _] = db.execute(sql);
-  //   if(colleges.length >=5){
-  //     return colleges
-  //   }
-  //   // colleges.length = 3;
-  //   else{
-  //     let limit = 5 - colleges.length;
-  //      let sql = `SELECT * from table where cet_score <= ${cet_score} Limit ${limit}`
-  //       [non_minority_colleges, _] = db.execute(sql);
-  //     return colleges.push(non_minority_colleges);
-  //   }
-  // }
 
   static updateProject(
     id,

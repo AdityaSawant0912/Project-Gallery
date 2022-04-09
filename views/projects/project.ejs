@@ -22,52 +22,70 @@
       <div id="area">
         <p><%= project.project_description %></p>
       </div>
-      
+
+      <% if(project.project_abstract)  {%> 
       <h2 class="project-sub-title">Abstract</h2>
       <div id="area">
         <p><%= project.project_abstract %></p>
       </div>
-      
+      <% } %>
+
+      <% if(project.project_problem_statement)  {%> 
       <h2 class="project-sub-title">Problem Statement</h2>
       <div id="area">
         <p><%= project.project_problem_statement %></p>
       </div>
+      <% } %>
       
-
+      <% if(project.project_methodology)  {%> 
       <h2 class="project-sub-title">Methodology</h2>
       <div id="area">
         <p><%= project.project_methodology %></p>
       </div>
-      
+      <% } %>
+
+      <% if(project.project_objective)  {%> 
       <h2 class="project-sub-title">Objectives</h2>
       <div id="area">
         <p><%= project.project_objective %></p>
       </div>
+      <% } %>
       
-
+      <% if(project.project_results)  {%> 
       <h2 class="project-sub-title">Result</h2>
       <div id="area">
         <p><%= project.project_results %></p>
       </div>
+      <% } %>
       
-
+      <% if(project.project_references)  {%> 
       <h2 class="project-sub-title">References</h2>
       <div id="area">
         <p><%= project.project_references %></p>
       </div>
+      <% } %>
       
+      <% if(project.project_achivements)  {%> 
+        <h2 class="project-sub-title">Achievements</h2>
+        <div id="area">
+          <p><%= project.project_achivements %></p>
+        </div>
+      <% } %>
 
-      <h2 class="project-sub-title">Achievements</h2>
+      <% if(project.project_mentor)  {%> 
+      <h2 class="project-sub-title">Team Mentor</h2>
       <div id="area">
-        <p><%= project.project_achivements %></p>
+        <p><%= project.project_mentor %></p>
       </div>
+      <% } %>
       
-
+      
       <h2 class="project-sub-title">Team Members</h2>
       <div id="area">
-        <% let members = project.project_members.split(","); %> 
+        <% let members = project.project_members_name.split(","); %> 
+        <% let members_reg = project.project_members.split(","); %> 
         <p><% for(let i = 0; i <= members.length; i++){ %> 
-            <%= members[i] %> 
+            <a href="/student/dashboard/<%= members_reg[i] %>"><%= members[i] %> </a>
             <% if(i!==members.length) {%> 
               <br>
             <% }}%></p>

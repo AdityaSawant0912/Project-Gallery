@@ -4,6 +4,8 @@
   font-family: "Poppins", sans-serif;
 }
 
+
+
 .projects {
   margin: 0 auto;
   max-width: 975px;
@@ -64,7 +66,7 @@
 
 .placeholder-name {
   position: relative;
-  width: 400px;
+  width: 370px;
   margin-left: 30px;
   /* margin-top: 25px;
     margin-bottom: 15px; */
@@ -79,7 +81,7 @@
 .project-name {
   font-size: 20px;
   display: flex;
-  width: 400px;
+  width: 370px;
   height: 108px;
   text-align: center;
   align-items: center;
@@ -89,7 +91,7 @@
 }
 .placeholder-category {
   position: relative;
-  width: 180px;
+  width: 150px;
   height: 148px;
   display: flex;
   margin-right: 10px;
@@ -99,7 +101,7 @@
   float: left;
 }
 .placeholder-date {
-  width: 120px;
+  width: 100px;
   height: 148px;
   display: flex;
   margin-right: 10px;
@@ -116,7 +118,7 @@
   justify-content: center;
   text-align: center;
   height: 50px;
-  width: 70px;
+  width: 100px;
   margin: 48px 10px 10px 0px;
   text-decoration: none;
 }

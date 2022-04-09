@@ -5,10 +5,10 @@ exports.doLoggout = async (req, res) => {
     req.session.destroy((err) => res.redirect("/"));
 };
 exports.getRegister = async (req, res) => {
-  res.status(200).render("registerStudent");
+  res.status(200).render("registerStudent", {loggedin: req.session, role: req.session.role, regNo: req.session.regNo, action: "/student/upload" });
 };
 exports.getLogin = async (req, res) => {
-  res.status(200).render("login");
+  res.status(200).render("login", {loggedin: req.session, role: req.session.role, regNo: req.session.regNo, action: "/student/upload" });
 };
 
 exports.doRegisterStudent = async (req, res) => {

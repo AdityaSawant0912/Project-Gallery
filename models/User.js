@@ -12,10 +12,11 @@ class User{
         return db.execute(sql);
     }
     
-    static findOne(email, password, role){
+    static async findOne(email, password, role){
         let sql = `SELECT * FROM users WHERE email = '${email}' AND password = MD5('${password}') AND role = '${role}'`;
-
+            
         return db.execute(sql);
+            
     }
     
     static getRole(email){

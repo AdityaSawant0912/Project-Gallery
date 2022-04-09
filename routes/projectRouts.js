@@ -6,6 +6,7 @@ const router = express.Router();
 router
     .route("/all")
     .get(projectController.getAllProject)
+
     
 router.use(express.static('public'))
 router

@@ -13,7 +13,7 @@
     <h3 class="title-center">Create Form</h3>
     
     <div class="form">
-      <form enctype="multipart/form-data" action=<%= action %>>
+      <form enctype="multipart/form-data" action="/student/upload">
         <div class="title">Project Title : <input type="text" id="project_name" /></div>
         <br />
         <div>
@@ -133,16 +133,19 @@
           ></textarea>
         </div>
         <br />
-        <div class="text-area">
-          <label for="members" class="lable-field">Project Members</label>
-          <br />
-          <textarea
-            id="project_members"
-            cols="40"
-            rows="10"
-          ></textarea>
-        </div>
+        <div class="title">Project Mentor : <input type="text" id="project_mentor" /></div>
         <br />
+        <div class="title">Project Member 1 Name : <input type="text" id="member_name_1" /></div>
+        <div class="title">Project Member 1 RegNo : <input type="text" id="member_1"></div>
+        <br />
+        <div class="title">Project Member 2 Name : <input type="text" id="member_name_2" /></div>
+        <div class="title">Project Member 2 RegNo : <input type="text" id="member_2" /></div>
+        <br />
+        <div class="title">Project Member 3 Name : <input type="text" id="member_name_3" /></div>
+        <div class="title">Project Member 3 RegNo : <input type="text" id="member_3" /></div>
+        <br />
+        <div class="title">Project Member 4 Name : <input type="text" id="member_name_4" /></div>
+        <div class="title">Project Member 4 RegNo : <input type="text" id="member_4" /></div>
         <br />
         <div>
           <!-- <input type="button" class="btn" value="Submit now">
@@ -154,6 +157,5 @@
     </div> 
     <script src="/scripts/studentUpload.js"></script>
     <%- include("../partials/footer.ejs") %>
-    
   </body>
 </html>

@@ -7,8 +7,6 @@ function validateEmail(email) {
 }
 
 function loginChecker(req, res, next) {
-  console.log("loginChecker");
-  console.log(req.session.authorised);
   if (req.session.authorised) {
     next();
     return;
@@ -32,10 +30,10 @@ async function adminChecker(req, res, next) {
   let role = req.session.role;
   console.log("misc:" + role);
   if (role == "admin") {
-    console.log("asdasdadmin");
+    console.log("admin");
     next()
   }else{
-    console.log('error');
+    console.log('error no permision');
     res.redirect('/')
   }
 }

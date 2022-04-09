@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/project-home.css" />
+    <title>Project Gallery | <%= content_title %> </title>
+  </head>
+  <body>
+    <%- include('../partials/nav.ejs') %>
+    <div class="projects">
+      <h2 class="title-head"><%= content_title %> </h2>
+      <% if (count > 0) { %> <% projects.forEach(project => { %>
+      <a class="project-tiles" , href="/admin/pending/<%= project.id %>">
+        <h3 class="project-name"><%= project.project_name%></h3>
+        <% desc = project.project_description.substring(0, 80); %> 
+        <p class="project-desc"><%= desc + '...' %></p>
+        <h4 class="project-year"><%= project.project_year %></h4>
+        
+      </a>
+      <% }) %> <% } %>
+    </div>
+  </body>
+  
+  
+  <%- include('../partials/footer.ejs') %> 
+</html>

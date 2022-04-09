@@ -1,6 +1,22 @@
 const express = require('express');
 const path = require('path');
 const studentController = require('../controllers/studentController');
+const { route } = require('./projectRouts');
+
+const fs = require("fs");
+
+
+const multer = require("multer");
+const storage = multer.diskStorage({
+  destination: (req, res, cb) => {
+    cb(null, "./public/uploadImages");
+  },
+  filename: (req, file, cb) => {
+    cb(null, file.originalname);
+  },
+});
+const upload = multer({ storage: storage });
+
 
 const router = express.Router();
 router.use(express.static('public'))
@@ -12,7 +28,7 @@ router
 router
     .route("/upload")
     .get(studentController.getUpload)
-    // .post(studentController.postUpload);
+    .post(upload.single("image"), studentController.postUpload);
 
 // router 
 //     .route("/edit/:regNo/:id")

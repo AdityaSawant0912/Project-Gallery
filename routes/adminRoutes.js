@@ -33,6 +33,18 @@ router
 router
     .route("/create")
     .get(adminController.getProjectCreate);
+router
+    .route("/pending")
+    .get(adminController.getAllPendingProject)
+    
+router.use("/pending/:id",express.static('public'))
+
+router
+    .route("/pending/:id")
+    .get(adminController.getPendingProjectById)
+router
+    .route("/approve/:id")
+    .get(adminController.approveProjectById)
 
 router
     .route("/edit/:id")

@@ -1,20 +1,18 @@
 .flip-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
 	perspective: 1000;
 }
 .flipper {
   padding: 30px;
-  width: 300px;
-  height:350px;
+  width: 400px;
+  height:600px;
   position: relative;
     background: darkgray;
     -webkit-border-radius: 20px;
     -moz-border-radius: 20px;
     border-radius: 20px;
-	
-	transition: 0.9s;
+	margin-left: 400px;
+    margin-top: 50px;
+	transition: 0.6s;
 	transform-style: preserve-3d;
 }
 
@@ -62,21 +60,6 @@ button{
   font-size: xx-large; 
 }
 
-.title1{
-  text-align: center;
-  color: black;
-  font-size: xx-large;
-}
-
-
-
-.abcd{
-    text-align: center;
-    color: black; 
-    padding: 10px;
-    font-size: large;
-}
-
 #email{
     margin-top: 10px;
     margin-bottom: 10px;
@@ -87,8 +70,6 @@ button{
     font-family: Arial, Helvetica, sans-serif;
     border-radius: 7px;
     border-color: black;
-
-
 }
 #password{
     margin-top: 10px;
@@ -102,34 +83,7 @@ button{
     border-color: black;
 }
 
-.Abc{
-    margin-top: 25px;
-    margin-bottom: 10px;
-    font-size: medium;
-    width: 150px;
-    border-radius: 10px;
-    font-weight: 500;
-    font-size: medium;
-    font-family: Arial, Helvetica, sans-serif;
-    border-radius: 8px;
-    border-color: black;
-    margin-left: 70px;
-}
-
-
-#email1{
-    margin-top: 10px;
-    margin-bottom: 10px;
-    background-color: white;
-    color: black;
-    font-weight: 500;
-    font-size: medium;
-    font-family: Arial, Helvetica, sans-serif;
-    border-radius: 7px;
-    border-color: black;
-}
-
-#password1{
+#cpassword{
     margin-top: 10px;
     margin-bottom: 10px;
     background-color: white;
@@ -141,28 +95,83 @@ button{
     border-color: black;
 }
 
-
-.flipbutton{
-    color:black;
-    text-decoration:none;
-    text-align:center;
-   
-    margin-left: 95px;
+#name{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: white;
+    color: black;
+    font-weight: 500;
+    font-size: medium;
+    font-family: Arial, Helvetica, sans-serif;
+    border-radius: 8px;
+    border-color: black;
 }
 
-
-
-/* Alignment styles */
-
-body, html {
-  height: 100%;
+#regNo{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: white;
+    color: black;
+    font-weight: 500;
+    font-size: medium;
+    font-family: Arial, Helvetica, sans-serif;
+    border-radius: 8px;
+    border-color: black;
 }
 
-body {
-  /* display: flex; */
-  justify-content: center;
-  align-items: center;
+#branch{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: white;
+    color: black;
+    font-weight: 500;
+    font-size: medium;
+    font-family: Arial, Helvetica, sans-serif;
+    border-radius: 8px;
+    border-color: black;
+    padding: 6px;
+}
+
+#sem{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: white;
+    color: black;
+    font-weight: 500;
+    font-size: medium;
+    font-family: Arial, Helvetica, sans-serif;
+    border-radius: 8px;
+    border-color: black;
+    margin-left: 10px;
+    padding-right: 5px;
+    padding-left: 5px;
+    padding-top: 3px;
+    padding-bottom: 3px;
     
-    
-    background:white;}
-    
+}
+
+#git-hub_link{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: white;
+    color: black;
+    font-weight: 500;
+    font-size: medium;
+    font-family: Arial, Helvetica, sans-serif;
+    border-radius: 8px;
+    border-color: black;
+}
+
+#Linkedin_link{
+
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: white;
+    color: black;
+    font-weight: 500;
+    font-size: medium;
+    font-family: Arial, Helvetica, sans-serif;
+    border-radius: 8px;
+    border-color: black;
+}
+     

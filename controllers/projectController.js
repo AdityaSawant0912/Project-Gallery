@@ -1,4 +1,5 @@
 const Project = require("../models/Project");
+const PendingProject = require("../models/PendingProject");
 
 exports.getAllProject = async (req, res, next) => {
     try {
@@ -13,6 +14,7 @@ exports.getAllProject = async (req, res, next) => {
         res.status(404).render('404');
     }
 };
+
 
 exports.getProjectByCategory = async (req, res) => {
     try {
@@ -33,7 +35,7 @@ exports.getProjectByCategory = async (req, res) => {
                 break;
         
             default:
-                break;
+                res.status(404).render('404');
         }
         res
         .status(200)

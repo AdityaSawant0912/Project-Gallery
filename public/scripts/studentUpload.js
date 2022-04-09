@@ -30,7 +30,18 @@ uploadBtn.addEventListener("click", () => {
     let project_achivements = document.getElementById(
       "project_achivements"
     ).value;
-    let project_members = document.getElementById("project_members").value;
+    let project_mentor = document.getElementById("project_mentor").value;
+    let member_1 = document.getElementById("member_1").value;
+    let member_2 = document.getElementById("member_2").value;
+    let member_3 = document.getElementById("member_3").value;
+    let member_4 = document.getElementById("member_4").value;
+    let member_name_1 = document.getElementById("member_name_1").value;
+    let member_name_2 = document.getElementById("member_name_2").value;
+    let member_name_3 = document.getElementById("member_name_3").value;
+    let member_name_4 = document.getElementById("member_name_4").value;
+    let project_members = `${member_1},${member_2},${member_3},${member_4}`;
+    let project_members_name = `${member_name_1},${member_name_2},${member_name_3},${member_name_4}`;
+    
     let project_year = document.getElementById("year").value;
     
     formData.append("image", newImage);
@@ -45,14 +56,16 @@ uploadBtn.addEventListener("click", () => {
     formData.append("project_results", project_results);
     formData.append("project_references", project_references);
     formData.append("project_achivements", project_achivements);
+    formData.append("project_mentor", project_mentor);
     formData.append("project_members", project_members);
+    formData.append("project_members_name", project_members_name);
     formData.append("project_year", project_year);
     document.getElementById("uploadImages").value = null;
     fetch("/student/upload", {
       method: "POST",
       body: formData,
     })
-      .then((res) => document.location.href="/admin/")
+      .then((res) => document.location.href="/")
       .catch((err) => console.log(err));
   }
 
