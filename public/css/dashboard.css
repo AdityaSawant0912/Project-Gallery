@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+.main-body {
+    padding: 15px;
+    display: grid;
+    grid-template-columns: auto auto 50%;
+    grid-template-rows: auto auto;
+    justify-content: center;
+    padding-top: 120px;
+    padding-left: 150px;
+}
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 300px;
+    margin: auto;
+    text-align: center;
+    font-family: Poppins;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.social-site {
+    width: 8%;
+}
+
+.git-social-site {
+    width: 9%;
+}
+
+.social-image {
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.detail-box {
+    display: inline-block;
+    /* flex-direction: row;
+    justify-content: left; */
+}
+
+
+
+.card-details {
+    font-size: 20px;
+    font-family: Poppins;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    width: 80%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-bottom: 80px;
+}
+
+label[for="Details"] {
+    font-weight: bold;
+    font-size: 16px;
+    margin-right: 20px;
+    display: inline-block;
+    width: 150px;
+}
+
+label[for="Details-Meta"] {
+    font-weight: bold;
+    font-size: 16px;
+    padding-left: 50px;
+    display: inline-block;
+    margin-bottom: 5px;
+    margin-left: 5px
+}
+
+.title {
+    color: grey;
+    font-size: 18px;
+}
+
+button {
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 8px;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+}
+
+a {
+    text-decoration: none;
+    font-size: 22px;
+    color: black;
+}
+
+button:hover,
+a:hover {
+    opacity: 0.7;
+}
