@@ -21,6 +21,7 @@ const upload = multer({ storage: storage });
 const router = express.Router();
 router.use(express.static('public'))
 router.use(express.static(path.join(__dirname, 'public')))
+router.use('/dashboard/:regNo', express.static('public'))
 router
     .route("/dashboard/:regNo")
     .get(studentController.getStudentDashboard);
