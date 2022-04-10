@@ -7,6 +7,26 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>404 page not found</h1>
+    <%- include('./partials/nav.ejs') %>
+    <div class="body">
+    <h1 class="title">404</h1>
+    <%if (content== "default") {%>
+        <h2 class="sub-title"> Page you are looking for is NOT Available or does not exists </h2>
+                                
+    <% } else { %>                             
+        <h2 class="sub-title"> <%= content %> </h2>
+    <% } %>
+    </div>
+    <style>
+        .body{
+            text-align: center;
+            margin-top: 100px;
+            color: #24262b;
+        }
+        .title{
+            font-size: 100px;
+        }
+    </style>
+    
 </body>
 </html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="css/register.css" rel="stylesheet" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="flip-container">
+      <div class="flipper" id="flipper">
+        <div class="front">
+          <h1 class="title">Admin Registration</h1>
+          <form action="/register/admin" method="POST">
+            <input type="text" name="email" id="email" placeholder="Email" />
+            <input
+              type="text"
+              name="password"
+              id="password"
+              placeholder="Password"
+            />
+            <input
+              type="text"
+              name="cpassword"
+              id="cpassword"
+              placeholder="Confirm Password"
+            />
+
+            <button id="upload_btn">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      let uploadBtn = document.getElementById("upload_btn");
+      uploadBtn.addEventListener("click", () => {
+        let pass = document.getElementById("password").value;
+        let cpass = document.getElementById("cpassword").value;
+        if (pass != cpass) {
+          alert("Passwords do not match");
+        //   return;
+        } else {
+          let email = document.getElementById("email").value;
+          if (email == "" ) {
+            alert("Please enter Email Id");
+            // return;
+          } else {
+            formData.append("email", email);
+            formData.append("password", password);
+            alert("Your current Session will be destroyed!!");
+            fetch("/register/admin", {
+              method: "POST",
+              body: formData,
+            })
+              .then((res) => (document.location.href = "/admin"))
+              .catch((err) => {console.log(err);alert("Error Please try again later")});
+          }
+        }
+
+        let formData = new FormData();
+      });
+    </script>
+  </body>
+</html>

@@ -99,6 +99,12 @@ class PendingProject {
         return db.execute(sql);
     }
     
+    static async remarkProjectById(id, remark){
+        let sql = `UPDATE pendingprojects SET project_remark ='${ remark }' WHERE id = '${id}'`;
+        return db.execute(sql);
+    }
+    
+    
     static async findProjectByRegNo(regNo){
         let sql = `SELECT * FROM pendingprojects WHERE project_submitted_by = '${regNo}'`;
         return db.execute(sql);

@@ -1,17 +1,16 @@
 const db = require("../config/db");
 
 class Student{
-    constructor(regNo, email, name, branch, stdClass, githubLink, linkedinLink){
+    constructor(regNo, email, name, branch, githubLink, linkedinLink){
         this.regNo = regNo;
         this.email = email;
         this.name = name;
         this.branch = branch;
-        this.stdClass = stdClass;
         this.githubLink = githubLink;
         this.linkedinLink = linkedinLink;
     }
     save(){
-        let sql = `INSERT INTO students (regNo, email, name, branch, class, githubLink, linkedinLink, pfpLink) VALUES ('${this.regNo}', '${this.email}', '${this.name}', '${this.branch}', '${this.stdClass}', '${this.githubLink}', '${this.linkedinLink}', ' ')`;
+        let sql = `INSERT INTO students (regNo, email, name, branch, class, githubLink, linkedinLink, pfpLink) VALUES ('${this.regNo}', '${this.email}', '${this.name}', '${this.branch}', ' ', '${this.githubLink}', '${this.linkedinLink}', ' ')`;
         return db.execute(sql);
     }
     

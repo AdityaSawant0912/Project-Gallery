@@ -4,17 +4,18 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/admin-home.css" />
+    <link rel="stylesheet" href="css/admin-pending-home.css" />
     <title>Project Gallery | Admin</title>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
   </head>
   <body>
     <%- include('../partials/nav.ejs') %>
-    <h2 class="title-head">Hello Admin</h2>
+    <h2 class="title-head">All Pending Projects</h2>
     
     <div class="projects">
       <% if (count > 0) { %> <% projects.forEach(project => { %>
-      <div class="project-tiles">
+      <div class="project-holder">
+        <div class="project-tiles">
         <div class="placeholder-name">
           <a class="project-name" href="/admin/pending/<%= project.id %>"><%= project.project_name%></a>
         </div>
@@ -24,13 +25,15 @@
         <div class="placeholder-date">
           <h4><%= project.project_created_at %></h4>
         </div>
-        <a class="placeholder-button edit" href="remark/<%= project.id %>"
-          >+ Remark</a
-        >
+        <a class="placeholder-button delete" href="approve/<%= project.id %>">Approve</a>
+        </div>
+        <div class="remark-form">
+        <form action="remark/<%= project.id %>" method="post">
+        <input type="text" name="remark" id="remark" class="form-input" value="<%= project.project_remark %>">
+        <button type="submit" class="form-btn">Update</button>
+        </form>
+        </div>
         
-        <a class="placeholder-button delete" href="approve/<%= project.id %>"
-          >Approve</a
-        >
       </div>
       <% }) %> <% } %>
     </div>

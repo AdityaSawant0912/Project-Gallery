@@ -11,7 +11,7 @@ exports.getAllProject = async (req, res, next) => {
         console.log(error);
         console.log(next.code);
         
-        res.status(404).render('404');
+        res.status(404).render('404', {content: "default", loggedin: req.session, role: req.session.role, regNo: req.session.regNo});
     }
 };
 
@@ -21,7 +21,7 @@ exports.getProjectByCategory = async (req, res) => {
         let projectCategory = req.params.category;
         let [projects, _] = await Project.findByCategory(projectCategory);
         // if( projects[0]  == null)
-        //     res.status(404).render('404');
+        //     res.status(404).render('404', {content: "default", loggedin: req.session, role: req.session.role, regNo: req.session.regNo});
         var title
         switch (projectCategory) {
             case 'mini-project':
@@ -35,14 +35,14 @@ exports.getProjectByCategory = async (req, res) => {
                 break;
         
             default:
-                res.status(404).render('404');
+                res.status(404).render('404', {content: "default", loggedin: req.session, role: req.session.role, regNo: req.session.regNo});
         }
         res
         .status(200)
         .render("projects/home", { content_title : title, count: projects.length, projects, loggedin: req.session, role: req.session.role, regNo: req.session.regNo })//json({ project: project[0] });
     } catch (error) {
         console.log(error);
-        res.status(404).render('404');
+        res.status(404).render('404', {content: "default", loggedin: req.session, role: req.session.role, regNo: req.session.regNo});
     }
 }
 
@@ -52,11 +52,11 @@ exports.getProjectById = async (req, res) => {
         let projectId = req.params.id;
         let [project, _] = await Project.findById(projectId);
         if( project[0]  == null)
-            res.status(404).render('404');
+            res.status(404).render('404', {content: "default", loggedin: req.session, role: req.session.role, regNo: req.session.regNo});
         res.status(200).render('projects/project', {project: project[0], loggedin: req.session, role: req.session.role, regNo: req.session.regNo}); //json({ project: project[0] });
     } catch (error) {
         console.log(error);
-        res.status(404).render('404');
+        res.status(404).render('404', {content: "default", loggedin: req.session, role: req.session.role, regNo: req.session.regNo});
     }
 }
 

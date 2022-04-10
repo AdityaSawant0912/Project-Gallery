@@ -1,0 +1,181 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+* {
+  font-family: "Poppins", sans-serif;
+}
+
+
+
+.projects {
+  margin: 0 auto;
+  max-width: 975px;
+  align-content: center;
+  justify-items: center;
+  padding-left: 0px;
+  overflow: hidden;
+}
+
+.title-head {
+  height: 22px;
+  border-radius: 5px;
+  border-color: black;
+  padding: 2px;
+  text-align: center;
+  text-decoration: underline #e91e63;
+}
+
+/* div{
+    background-color:white;
+} */
+
+
+
+
+.project-holder {
+  background-color: #24262b;
+  width: 975px;
+  height: 200px;
+  border: 1px solid #24262b;
+  margin: 25px;
+  margin-left: 0px;
+  margin-right: 0px;
+
+  box-sizing: border-box;
+
+  border-radius: 6px;
+
+}
+
+.remark-form {
+  display: flex;
+  background-color: #24262b;
+  width: 975px;
+  margin-left: 0px;
+  margin-right: 0px;
+  align-items: center;
+  justify-content: center;
+  float: left;
+  margin-top: 15px;
+}
+
+.form-input {
+    background-color: white;
+    border: 0px;
+    width: 500px;
+    height: 40px;
+    font-size: 15px;
+}
+
+.form-btn {
+    background-color: #24262b;
+    border: 0px;
+    text-decoration: none;
+    color: #e91e63;
+    height: 30px;
+    width: 80px;
+    font-size: 20px;
+}
+
+.project-tiles {
+  display: flex;
+  background-color: #24262b;
+  width: 975px;
+  height: 120px;
+  border: 1px solid #24262b;
+  /* margin: 25px; */
+  margin-left: 0px;
+  margin-right: 0px;
+  align-items: center;
+  justify-content: center;
+  float: left;
+  box-sizing: border-box;
+  color: #fff;
+  border-radius: 6px;
+
+  display: block;
+  text-decoration: none;
+}
+
+.create-new {
+  width: 950px;
+  height: 150px;
+  display: flex;
+  float: left;
+  align-items: center;
+  justify-content: center;
+}
+
+.create {
+  text-align: center;
+  text-decoration: none;
+  color: #fff;
+  font-size: 30px;
+}
+
+.placeholder-name {
+  position: relative;
+  width: 370px;
+  margin-left: 30px;
+  /* margin-top: 25px;
+    margin-bottom: 15px; */
+  margin-right: 10px;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  float: left;
+}
+
+
+.project-name {
+  font-size: 20px;
+  display: flex;
+  width: 370px;
+  height: 108px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: white;
+}
+.placeholder-category {
+  position: relative;
+  width: 150px;
+  height: 148px;
+  display: flex;
+  margin-right: 10px;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  float: left;
+}
+.placeholder-date {
+  width: 100px;
+  height: 148px;
+  display: flex;
+  margin-right: 10px;
+  margin-left: 50px;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  float: left;
+}
+
+.placeholder-button {
+  display: flex;
+  float: left;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 50px;
+  width: 100px;
+  margin: 48px 10px 10px 50px;
+  text-decoration: none;
+}
+.edit {
+  color: #fff;
+}
+
+.delete {
+  color: #e91e63;
+  font-size: 20px;
+}

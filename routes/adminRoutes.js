@@ -34,6 +34,9 @@ router
     .route("/create")
     .get(adminController.getProjectCreate);
 router
+    .route("/register")
+    .get(adminController.getRegister);
+router
     .route("/pending")
     .get(adminController.getAllPendingProject)
     
@@ -42,6 +45,9 @@ router.use("/pending/:id",express.static('public'))
 router
     .route("/pending/:id")
     .get(adminController.getPendingProjectById)
+router
+    .route("/remark/:id")
+    .post(adminController.remarkProjectById)
 router
     .route("/approve/:id")
     .get(adminController.approveProjectById)

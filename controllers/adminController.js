@@ -60,9 +60,15 @@ exports.createNewProject =  async (req, res) => {
       .redirect("/admin/");
   } catch (error) {
     console.log(error);
-    res.status(404).render("404");
+    res.status(404).render("404", {content: "default", loggedin: req.session, role: req.session.role, regNo: req.session.regNo});
   }
 }
+
+exports.getRegister = async (req, res) => {
+  res.status(200).render("registerAdmin", {loggedin: req.session, role: req.session.role, regNo: req.session.regNo, action: "/student/upload" });
+};
+
+
 exports.getAllPendingProject = async (req, res, next) => {
     try {
         const [projects, _] = await PendingProject.getAllProjects();
@@ -73,7 +79,7 @@ exports.getAllPendingProject = async (req, res, next) => {
         console.log(error);
         console.log(next.code);
         
-        res.status(404).render('404');
+        res.status(404).render('404', {content: "default", loggedin: req.session, role: req.session.role, regNo: req.session.regNo});
     }
 };
 
@@ -82,19 +88,35 @@ exports.getPendingProjectById = async (req, res) => {
         let projectId = req.params.id;
         let [project, _] = await PendingProject.findProjectById(projectId);
         if( project[0]  == null)
-            res.status(404).render('404');
+            res.status(404).render('404', {content: "default", loggedin: req.session, role: req.session.role, regNo: req.session.regNo});
         res.status(200).render('projects/project', {project: project[0], loggedin: req.session, role: req.session.role, regNo: req.session.regNo}); //json({ project: project[0] });
     } catch (error) {
         console.log(error);
-        res.status(404).render('404');
+        res.status(404).render('404', {content: "default", loggedin: req.session, role: req.session.role, regNo: req.session.regNo});
     }
 }
+
+exports.remarkProjectById = async (req, res) => {
+  let projectId = req.params.id;
+  let { remark } = req.body;
+  console.log(remark, projectId);
+  try {
+    let result = await PendingProject.remarkProjectById(projectId, remark);
+    res.redirect("/admin/pending");
+  } catch (error) {
+    console.log(error);
+    res.status(404).render("404", {content: "default", loggedin: req.session, role: req.session.role, regNo: req.session.regNo});
+  }
+  
+}
+
+
 exports.approveProjectById = async (req, res) => {
     try {
         let projectId = req.params.id;
         let [project, _] = await PendingProject.findProjectById(projectId);
         if( project[0]  == null)
-            res.status(404).render('404');
+            res.status(404).render('404', {content: "default", loggedin: req.session, role: req.session.role, regNo: req.session.regNo});
         project = project[0]    
         let newProject = new Project(
           project.project_name,
@@ -122,7 +144,7 @@ exports.approveProjectById = async (req, res) => {
         // res.status(200).render('projects/project', {project: project[0], loggedin: req.session, role: req.session.role, regNo: req.session.regNo}); //json({ project: project[0] });
     } catch (error) {
         console.log(error);
-        res.status(404).render('404');
+        res.status(404).render('404', {content: "default", loggedin: req.session, role: req.session.role, regNo: req.session.regNo});
     }
 }
 
@@ -134,7 +156,7 @@ exports.getAdminHome = async (req, res) => {
     res.status(200).render("admin/home", { count: projects.length, projects, loggedin: req.session, role: req.session.role, regNo: req.session.regNo});
   } catch (error) {
     console.log(error);
-    res.status(404).render("404");
+    res.status(404).render("404", {content: "default", loggedin: req.session, role: req.session.role, regNo: req.session.regNo});
   }
 };
 
@@ -142,11 +164,11 @@ exports.getProjectEdit = async (req, res) => {
   try {
     let projectId = req.params.id;
     let [project, _] = await Project.findById(projectId);
-    if (project[0] == null) res.status(404).render("404");
+    if (project[0] == null) res.status(404).render("404", {content: "default", loggedin: req.session, role: req.session.role, regNo: req.session.regNo});
     else res.status(200).render("admin/edit", {project: project[0], loggedin: req.session, role: req.session.role, regNo: req.session.regNo});
   } catch (error) {
     console.log(error);
-    res.status(404).render("404");
+    res.status(404).render("404", {content: "default", loggedin: req.session, role: req.session.role, regNo: req.session.regNo});
   }
 };
 
@@ -154,11 +176,11 @@ exports.getProjectById = async (req, res) => {
   try {
     let projectId = req.params.id;
     let [project, _] = await Project.findById(projectId);
-    if (project[0] == null) res.status(404).render("404");
+    if (project[0] == null) res.status(404).render("404", {content: "default", loggedin: req.session, role: req.session.role, regNo: req.session.regNo});
     else res.status(200).render("projects/project", {project: project, loggedin: req.session, role: req.session.role, regNo: req.session.regNo}); //json({ project: project[0] });
   } catch (error) {
     console.log(error);
-    res.status(404).render("404");
+    res.status(404).render("404", {content: "default", loggedin: req.session, role: req.session.role, regNo: req.session.regNo});
   }
 };
 
@@ -167,7 +189,7 @@ exports.getProjectCreate = async (req, res) => {
     res.status(200).render("admin/create", { loggedin: req.session, role: req.session.role, regNo: req.session.regNo, action: "/admin" });
   } catch (error) {
     console.log(error);
-    res.status(404).render("404");
+    res.status(404).render("404", {content: "default", loggedin: req.session, role: req.session.role, regNo: req.session.regNo});
   }
 };
 
@@ -181,7 +203,7 @@ exports.deleteProjectById = async (req, res) => {
       res.status(200).redirect("/admin");
     } catch (error) {
       console.log(error);
-      res.status(404).render("404");
+      res.status(404).render("404", {content: "default", loggedin: req.session, role: req.session.role, regNo: req.session.regNo});
     }
     //res.status(200).send(`Project with Project Id: ${projectId} has been successfully Deleted.`);
     
@@ -226,6 +248,6 @@ exports.updateProject = async (req, res) => {
     res.status(200).redirect("/admin"), {loggedin: req.session, role: req.session.role, regNo: req.session.regNo};
   } catch (error) {
     console.log(error);
-    res.status(404).render("404");
+    res.status(404).render("404", {content: "default", loggedin: req.session, role: req.session.role, regNo: req.session.regNo});
   }
 };

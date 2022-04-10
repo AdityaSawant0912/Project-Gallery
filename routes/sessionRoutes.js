@@ -11,7 +11,7 @@ router
     
 router
     .route("/register/admin")
-    .post(misc.sessionAuthorized, sessionController.doRegisterAdmin);
+    .post(misc.adminChecker, sessionController.doRegisterAdmin);
     
 router
     .route("/register")

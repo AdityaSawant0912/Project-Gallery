@@ -8,11 +8,11 @@ exports.getStudentDashboard = async (req, res) => {
     let [result, _] = await Student.findByRegNo(regNo);
     let [pendingProjects, ] = await PendingProject.findProjectByRegNo(regNo);
     try {
-        if (result[0] == null) res.status(404).render("404");
+        if (result[0] == null) res.status(404).render("404", {content: "default", loggedin: req.session, role: req.session.role, regNo: req.session.regNo});
         else res.status(200).render("student/dashboard", { result : result[0], loggedin: req.session, role: req.session.role, regNo: req.session.regNo, pendingProjects});
     } catch (error) {
         console.log(error);
-        res.status(404).render("404");
+        res.status(404).render("404", {content: "default", loggedin: req.session, role: req.session.role, regNo: req.session.regNo});
     }
 }
 
@@ -21,7 +21,7 @@ exports.getUpload = async (req, res) => {
     res.status(200).render("student/create", {loggedin: req.session, role: req.session.role, regNo: req.session.regNo, action: "/student/upload" });
   } catch (error) {
     console.log(error);
-    res.status(404).render("404");
+    res.status(404).render("404", {content: "default", loggedin: req.session, role: req.session.role, regNo: req.session.regNo});
   }
 }
 
@@ -75,8 +75,8 @@ exports.postUpload = async (req, res) => {
          
       });
     } catch (err) {
-      console.log("h111111");
       console.log(err);
+      res.status(404).render("404", {content: "default", loggedin: req.session, role: req.session.role, regNo: req.session.regNo});
     }
 
     res
@@ -84,6 +84,6 @@ exports.postUpload = async (req, res) => {
       .redirect(`/student/dashboard/${req.session.regNo}`);
   } catch (error) {
     console.log(error);
-    res.status(404).render("404");
+    res.status(404).render("404", {content: "default", loggedin: req.session, role: req.session.role, regNo: req.session.regNo});
   }
 }

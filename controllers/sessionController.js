@@ -12,11 +12,11 @@ exports.getLogin = async (req, res) => {
 };
 
 exports.doRegisterStudent = async (req, res) => {
-  const { email, password, regNo, name, branch, stdClass, githubLink, linkedinLink} = req.body;
+  const { email, password, regNo, name, branch,  githubLink, linkedinLink} = req.body;
   console.log(req.body);
   const role = "student";
   const user = new User(email, password, role);
-  const student = new Student(regNo, email, name, branch, stdClass, githubLink, linkedinLink);
+  const student = new Student(regNo, email, name, branch,  githubLink, linkedinLink);
   try {
     let result = await user.save();
     let result2 = await student.save();
@@ -24,57 +24,55 @@ exports.doRegisterStudent = async (req, res) => {
       req.session.authorised = true;
       req.session.role = "student";
       req.session.email = email;
-      res.cookie("email", email);
-    } else res.status(404).render("404");
-    res.status(200).redirect("/");
+      req.session.regNo = regNo
+      // res.cookie("email", email);
+      res.status(200).redirect("/projects/all");
+    } else res.status(404).render("404", {content: "Student Already Exists OR Server Issue", loggedin: req.session, role: req.session.role, regNo: req.session.regNo});
   } catch (error) {
     console.log(error);
-    res.status(404).render("404");
+    res.status(404).render("404", {content: "default", loggedin: req.session, role: req.session.role, regNo: req.session.regNo});
   }
 };
 
 exports.doRegisterAdmin = async (req, res) => {
   const { email, password} = req.body;
+  console.log(req.body);
   const role = "admin";
   const user = new User(email, password, role);
   try {
     let result = await user.save();
     if (result[0].affectedRows == 1) {
+      req.session.destroy((err) => console.log(error));
       req.session.authorised = true;
       req.session.role = "admin";
       req.session.email = email;
-      res.cookie("email", email);
-    } else res.status(404).render("404");
-    res.status(200).redirect("/");
+      // res.cookie("email", email);
+      res.status(200).redirect("/");
+    } else res.status(404).render("404", {content: "Student Already Exists OR Server Issue", loggedin: req.session, role: req.session.role, regNo: req.session.regNo});
   } catch (error) {
     console.log(error);
-    res.status(404).render("404");
+    res.status(404).render("404", {content: "Student Already Exists OR Server Issue", loggedin: req.session, role: req.session.role, regNo: req.session.regNo});
   }
 };
 
 exports.doLogin = async (req, res) => {
   const { email, password, role } = req.body;
-  console.log("login:" + role);
   try {
     let result = await User.findOne(email, password, role );
     if (result[0].length == 1) {
       req.session.authorised = true;
-      console.log('hi');
       req.session.role = role;
       req.session.email = email;
     if(role == "student"){
-      console.log('sadf');
       let [regNo, _] = await Student.getRegNo(email);
-      console.log(regNo[0].regNo);
       req.session.regNo = regNo[0].regNo
     }
-      console.log('hi2');
       // res.cookie("email", email);
-    } else res.status(404).render("404");
+    } else res.status(404).render("404", {content: "default", loggedin: req.session, role: req.session.role, regNo: req.session.regNo});
     if (role == "admin") {res.status(200).redirect("/admin");}
     else res.status(200).redirect("/projects/all");
   } catch (error) {
-    res.status(404).render("404");
+    res.status(404).render("404", {content: "default", loggedin: req.session, role: req.session.role, regNo: req.session.regNo});
   }
 };
 

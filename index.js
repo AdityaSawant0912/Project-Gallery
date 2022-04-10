@@ -45,7 +45,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 //404
 app.use((req, res) => {
-  res.status(404).render("404");
+  res.status(404).render("404", {content: "default", loggedin: req.session, role: req.session.role, regNo: req.session.regNo});
 });
 
 // Listen on Environment Port or 3000

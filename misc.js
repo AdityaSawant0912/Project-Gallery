@@ -30,7 +30,6 @@ async function adminChecker(req, res, next) {
   let role = req.session.role;
   console.log("misc:" + role);
   if (role == "admin") {
-    console.log("admin");
     next()
   }else{
     console.log('error no permision');

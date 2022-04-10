@@ -4,9 +4,9 @@
 .flipper {
   padding: 30px;
   width: 400px;
-  height:600px;
+  height:650px;
   position: relative;
-    background: darkgray;
+    background: #b5e2ff;
     -webkit-border-radius: 20px;
     -moz-border-radius: 20px;
     border-radius: 20px;
@@ -123,6 +123,7 @@ button{
     margin-top: 10px;
     margin-bottom: 10px;
     background-color: white;
+    margin-left: 80px;
     color: black;
     font-weight: 500;
     font-size: medium;
