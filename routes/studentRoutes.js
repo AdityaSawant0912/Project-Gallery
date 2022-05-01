@@ -26,9 +26,6 @@ router
     .route("/dashboard/:regNo")
     .get(studentController.getStudentDashboard);
     
-    
-router.use(express.static('public'))
-router.use(express.static(path.join(__dirname, 'public')))
 router
     .route("/pending/:id")
     .get(studentController.getPendingProject);
