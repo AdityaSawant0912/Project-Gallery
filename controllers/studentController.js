@@ -20,6 +20,19 @@ exports.getStudentDashboard = async (req, res) => {
     }
 }
 
+exports.getPendingProject = async (req, res) => {
+  try {
+    let pid = req.params.id
+    let [project, ] = await PendingProject.findProjectById(pid);
+    if(project[0].project_submitted_by == req.session.regNo){
+      res.status(200).render("projects/project", { project: project[0], loggedin: req.session, role: req.session.role, regNo: req.session.regNo });
+    }
+  } catch (error) {
+    console.log(error);
+    res.status(404).render("404", {content: "default", loggedin: req.session, role: req.session.role, regNo: req.session.regNo});
+  }
+}
+
 exports.getUpload = async (req, res) => {
     try {
     res.status(200).render("student/create", {loggedin: req.session, role: req.session.role, regNo: req.session.regNo, action: "/student/upload" });

@@ -3,9 +3,9 @@ const Project = require("../models/Project");
 exports.getHome = async (req, res) => {
   try {
     // console.log(req.session.role);
-    req.session.authorised = true;
-    req.session.role = 'student';
-    req.session.regNo = 0
+    // req.session.authorised = true;
+    // req.session.role = 'student';
+    // req.session.regNo = 0
     res
       .status(200)
       .render("home", {
