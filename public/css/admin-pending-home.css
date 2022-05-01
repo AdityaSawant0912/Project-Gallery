@@ -23,6 +23,9 @@
   text-align: center;
   text-decoration: underline #e91e63;
 }
+.pending-remark-form{
+  border-radius: 50px;
+}
 
 /* div{
     background-color:white;

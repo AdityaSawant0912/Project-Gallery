@@ -69,6 +69,7 @@
     <div class="pending-project">
       <h2 class="title-head">Pending For Approval Projects</h2>
       <% if(pendingProjects){pendingProjects.forEach(project=> { %>
+<div class="pending-center">
         <div class="pending-project-holder">
           <div class="pending-project-tiles">
             <div class="pending-placeholder-name">
@@ -94,6 +95,7 @@
 
         </div>
         <% }) }%>
+      </div>                                                            
     </div>
 
     <%- include('../partials/footer.ejs') %>
