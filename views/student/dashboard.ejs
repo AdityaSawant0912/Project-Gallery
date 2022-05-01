@@ -2,51 +2,102 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/dashboard.css" />
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/dashboard.css" />
+  <title>Document</title>
 </head>
 
 <body>
-    <!-- <h1><%= result.email %> </h1>
-    <h1>email</h1> -->
-
+  <%- include('../partials/nav.ejs')%>
     <div class="main-body">
+      <div class="card">
+        <img src="<%= student.pfpLink %>" alt="Student Photo" style="width:100%">
+        <h1>
+          <%= student.name.toUpperCase() %>
+        </h1>
+        <!-- <p class="title">SE - 4</p> -->
+        <p>
+          <%= student.branch %>
+        </p>
+      </div>
+      <hr>
+      <div class="card-details">
+        <div class="name">
 
+          <label for="Details">Name</label>
+          <label for="Details-Meta">
+            <%= student.name %>
+          </label>
+          <hr>
 
-        <div class="card">
-            <img src="img.jpg" alt="Student-Image" style="width:100%">
-            <h1>Snehil Shah</h1>
-            <p class="title">SE - 4</p>
-            <p>Computer Engineering</p>
-            <p><button>Like</button></p>
+          <label for="Details">Email</label>
+          <label for="Details-Meta">
+            <%= student.email %>
+          </label>
+
+          <hr>
+          <a href="<%= student.githubLink %>"><img class="git-social-site" src="pngwing.com.png" alt="Github"></a>
+          <a href="<%= student.linkedinLink %>"><img class="social-site" src="pngwing.com (1).png" alt="Github"></a>
+          <a href="<%= student.email %>"><img class="social-site" src="pngwing.com (2).png" alt="Github"></a>
         </div>
-        <hr>
-        <div class="card-details">
-            <div class="name">
-
-                <label for="Details">Full Name</label>
-                <label for="Details-Meta">Snehil Ronak Shah</label>
-                <hr>
-
-                <label for="Details">Email</label>
-                <label for="Details-Meta">snehilshah27@gmail.com</label>
-
-                <hr>
-
-                <label for="Details">Phone</label>
-                <label for="Details-Meta">8169558980</label>
-                <hr>
-                <div class="social-image">
-                    <img class="git-social-site" src="pngwing.com.png" alt="Github">
-                    <img class="social-site" src="pngwing.com (1).png" alt="Github">
-                    <img class="social-site" src="pngwing.com (2).png" alt="Github">
-                </div>
-            </div>
-        </div>
+      </div>
     </div>
+    </div>
+    <div class="projects">
+      <h2 class="title-head">Projects</h2>
+      <% if (Projects.length> 0) { %> <% Projects.forEach(project=> { %>
+          <a class="project-tiles" href="/projects/<%= project[0].project_category %>/<%= project[0].id %>">
+            <h3 class="project-name">
+              <%= project[0].project_name%>
+            </h3>
+            <% desc=project[0].project_description.substring(0, 80); %>
+              <p class="project-desc">
+                <%= desc + '...' %>
+              </p>
+              <h4 class="project-year">
+                <%= project[0].project_year %>
+              </h4>
+
+          </a>
+          <% }) %>
+            <% } %>
+    </div>
+    <br>
+    <br>
+    <br>
+    <div class="pending-project">
+      <h2 class="title-head">Pending For Approval Projects</h2>
+      <% if(pendingProjects){pendingProjects.forEach(project=> { %>
+        <div class="pending-project-holder">
+          <div class="pending-project-tiles">
+            <div class="pending-placeholder-name">
+              <a class="pending-project-name" href="/student/pending/<%= project.id %>">
+                <%= project.project_name%>
+              </a>
+            </div>
+            <div class="pending-placeholder-category">
+              <h4>
+                <%= project.project_category %>
+              </h4>
+            </div>
+            <div class="pending-placeholder-date">
+              <h4>
+                <%= project.project_created_at %>
+              </h4>
+            </div>
+          </div>
+          <div class="pending-remark-form">
+            <input type="text" name="remark" id="remark" class="pending-form-input" readonly
+              value="<%= project.project_remark %>">
+          </div>
+
+        </div>
+        <% }) }%>
+    </div>
+
+    <%- include('../partials/footer.ejs') %>
 </body>
 
 </html>

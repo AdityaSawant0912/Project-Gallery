@@ -1,15 +1,19 @@
 const Student = require("../models/Student");
 const PendingProject = require("../models/PendingProject");
+const Project = require("../models/Project");
 const imgur = require("imgur");
 const fs = require("fs");
 
 exports.getStudentDashboard = async (req, res) => {
     let regNo = req.params.regNo;
-    let [result, _] = await Student.findByRegNo(regNo);
-    let [pendingProjects, ] = await PendingProject.findProjectByRegNo(regNo);
+    let [student, _] = await Student.findByRegNo(regNo);
+    let [pendingProjects, ] = await PendingProject.getAllProjects();
+    let [ProjectsIds, ] = [...new Set(await Project.findProjectByRegNo(regNo))];
+    let Projects=  await Project.findProjectByIds(ProjectsIds);
+    console.log(pendingProjects);
     try {
-        if (result[0] == null) res.status(404).render("404", {content: "default", loggedin: req.session, role: req.session.role, regNo: req.session.regNo});
-        else res.status(200).render("student/dashboard", { result : result[0], loggedin: req.session, role: req.session.role, regNo: req.session.regNo, pendingProjects});
+        if (student[0] == null) res.status(404).render("404", {content: "default", loggedin: req.session, role: req.session.role, regNo: req.session.regNo});
+        else res.status(200).render("student/dashboard", { student : student[0],pendingProjects, Projects,loggedin: req.session, role: req.session.role, regNo: req.session.regNo, pendingProjects});
     } catch (error) {
         console.log(error);
         res.status(404).render("404", {content: "default", loggedin: req.session, role: req.session.role, regNo: req.session.regNo});

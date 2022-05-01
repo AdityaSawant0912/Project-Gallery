@@ -101,6 +101,23 @@ class Project {
     let sql = "SELECT * from finalProjects";
     return db.execute(sql);
   }
+  
+  static async findProjectByIds(pids){
+    let ids = [];
+    for( let id of pids){
+      if(!ids.includes(id.id)){
+        ids.push(id.id);
+      }
+    }
+    console.log(ids);
+    let projects = [];
+    for(let id of ids){
+      let sql = `SELECT * from finalProjects WHERE id = ${id}`;
+      let proj = await db.execute(sql);
+      projects.push(proj[0]);
+    }
+    return projects
+  }
 
   static findById(id) {
     let sql = `SELECT * from finalProjects WHERE id = ${id} `;
@@ -121,6 +138,11 @@ class Project {
 
   static updateImage(id, project_image) {
     let sql = `UPDATE finalProjects SET project_image = '${project_image}' WHERE id = ${id}`;
+    return db.execute(sql);
+  }
+  
+  static findProjectByRegNo(regNo){
+    let sql = `SELECT id from projectholdby WHERE regNo = '${regNo}'`;
     return db.execute(sql);
   }
 
