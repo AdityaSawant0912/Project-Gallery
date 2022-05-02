@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
-
+*{
+  font-family: Poppins;
+}
 .main-body {
   padding: 15px;
   display: grid;
@@ -303,11 +305,12 @@ label[for="Details-Meta"] {
 }
 
 .project-name {
+  font-family: Poppins;
+  text-align: center;
   margin-top: 30px;
   margin-bottom: 30px;
   height: 200px;
   vertical-align: middle;
-  display: table-cell;
 }
 
 .project-desc {
