@@ -12,11 +12,11 @@ exports.getLogin = async (req, res) => {
 };
 
 exports.doRegisterStudent = async (req, res) => {
-  const { email, password, regNo, name, branch,  githubLink, linkedinLink} = req.body;
+  const { email, password, regNo, name, branch, Github, Linkedin} = req.body;
   console.log(req.body);
   const role = "student";
   const user = new User(email, password, role);
-  const student = new Student(regNo, email, name, branch, githubLink, linkedinLink);
+  const student = new Student(regNo, email, name, branch, Github, Linkedin);
   try {
     let result = await user.save();
     let result2 = await student.save();
