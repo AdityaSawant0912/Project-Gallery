@@ -44,32 +44,17 @@
       </div>
     </div>
     </div>
-    <div class="projects">
-      <h2 class="title-head">Projects</h2>
-      <% if (Projects.length> 0) { %> <% Projects.forEach(project=> { %>
-          <a class="project-tiles" href="/projects/<%= project[0].project_category %>/<%= project[0].id %>">
-            <h3 class="project-name">
-              <%= project[0].project_name%>
-            </h3>
-            <% desc=project[0].project_description.substring(0, 80); %>
-              <p class="project-desc">
-                <%= desc + '...' %>
-              </p>
-              <h4 class="project-year">
-                <%= project[0].project_year %>
-              </h4>
 
-          </a>
-          <% }) %>
-            <% } %>
-    </div>
-    <br>
-    <br>
-    <br>
     <div class="pending-project">
       <h2 class="title-head">Pending For Approval Projects</h2>
+      <div class="pending-center">
+      <div class="pending-project-tiles">
+        <div class="pending-create-new">
+          <a class="pending-create" href="/student/upload">+ New Project </a>
+        </div>
+        </div>
       <% if(pendingProjects){pendingProjects.forEach(project=> { %>
-<div class="pending-center">
+
         <div class="pending-project-holder">
           <div class="pending-project-tiles">
             <div class="pending-placeholder-name">
@@ -97,7 +82,48 @@
         <% }) }%>
       </div>                                                            
     </div>
+    <br>
+    <br>
+    <br>
+        <div class="projects">
+      <h2 class="title-head">Projects</h2>
+      <% if (Projects.length> 0) { %> <% Projects.forEach(project=> { %>
+          <a class="project-tiles" href="/projects/<%= project[0].project_category %>/<%= project[0].id %>">
+            <h3 class="project-name">
+              <%= project[0].project_name%>
+            </h3>
+            <% desc=project[0].project_description.substring(0, 80); %>
+              <p class="project-desc">
+                <%= desc + '...' %>
+              </p>
+              <h4 class="project-year">
+                <%= project[0].project_year %>
+              </h4>
 
+          </a>
+          <% }) %>
+            <% } %>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    \
+    \
     <%- include('../partials/footer.ejs') %>
 </body>
 

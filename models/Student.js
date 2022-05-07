@@ -8,9 +8,11 @@ class Student{
         this.branch = branch;
         this.githubLink = githubLink;
         this.linkedinLink = linkedinLink;
-        this.pfpLink = `https://avatars.dicebear.com/api/micah/${Math.random().toString(36).substring(2,8+2)}.svg`;
+        this.pfpLink = `https://avatars.dicebear.com/api/micah/${Math.random().toString(36).substring(2,8+2)}.svg?mood[]=sad`;
     }
-    save(){
+    
+    
+    save(){ 
         let sql = `INSERT INTO students (regNo, email, name, branch, class, githubLink, linkedinLink, pfpLink) VALUES ('${this.regNo}', '${this.email}', '${this.name}', '${this.branch}', ' ', '${this.githubLink}', '${this.linkedinLink}', '${this.pfpLink}')`;
         return db.execute(sql);
     }

@@ -1,103 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="css/register.css" rel="stylesheet" />
-    <title>Document</title>
-  </head>
-  <body>
-    <div class="flip-container">
-      <div class="flipper" id="flipper">
-        <div class="front">
-          <h1 class="title">Student Registration</h1>
-          <form action="/register/student" method="POST">
-            <input type="text" name="email" id="email" placeholder="Email" />
-            <input
-              type="text"
-              name="password"
-              id="password"
-              placeholder="Password"
-            />
-            <input
-              type="text"
-              name="cpassword"
-              id="cpassword"
-              placeholder="Confirm Password"
-            />
 
-            <h1 class="title">Personal Information</h1>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="css/register.css" rel="stylesheet" />
+  <title>Document</title>
+</head>
 
-            <input type="text" name="name" id="name" placeholder="Name" />
-            <input
-              type="text"
-              name="regNo"
-              id="regNo"
-              placeholder="Registration Number"
-            />
-            <input
-              type="text"
-              name="Github"
-              id="github_link"
-              placeholder="Git-Hub Link"
-            />
-            <input
-              type="text"
-              name="Linkedin"
-              id="linkedin_link"
-              placeholder="Linkedin Link"
-            />
-            <select name="branch" id="branch" value="Select Branch">
-              <option value="Computer Engineering">Computer Engineering</option>
-              <option value="Information Technology">Information Technology</option>
-              <option value="Electronics & Telecommunication">Electronics & Telecommunication</option>
-              <option value="AIDS">AIDS</option>
-            </select>
+<body>
+  <%- include('./partials/nav.ejs') %>
+    <br>
+    <br>
+    <br>
+    
+    <div>
+      <div class="flip-container">
+        <div class="flipper" id="flipper">
+          <div class="front">
+            <h1 class="title">Student Registration</h1>
+            <form action="/register/student" method="POST">
+              <input type="text" name="email" id="email" placeholder="Email" />
+              <input type="text" name="password" id="password" placeholder="Password" />
+              <input type="text" name="cpassword" id="cpassword" placeholder="Confirm Password" />
 
-            <button id="upload_btn">Submit</button>
-          </form>
+              <h1 class="title">Personal Information</h1>
+
+              <input type="text" name="name" id="name" placeholder="Name" />
+              <input type="text" name="regNo" id="regNo" placeholder="Registration Number" />
+              <input type="text" name="Github" id="github_link" placeholder="Git-Hub Link" />
+              <input type="text" name="Linkedin" id="linkedin_link" placeholder="Linkedin Link" />
+              <select name="branch" id="branch" value="Select Branch">
+                <option value="Computer Engineering">Computer Engineering</option>
+                <option value="Information Technology">Information Technology</option>
+                <option value="Electronics & Telecommunication">Electronics & Telecommunication</option>
+                <option value="AIDS">AIDS</option>
+              </select>
+
+              <button id="upload_btn">Submit</button>
+            </form>
+          </div>
         </div>
       </div>
-    </div>
 
-    <script>
-      let uploadBtn = document.getElementById("upload_btn");
-      uploadBtn.addEventListener("click", () => {
-        let pass = document.getElementById("password").value;
-        let cpass = document.getElementById("cpassword").value;
-        if (pass != cpass) {
-          alert("Passwords do not match");
-          return;
-        } else {
-          let email = document.getElementById("email").value;
-          let regNo = document.getElementById("regNo").value;
-          let name = document.getElementById("name").value;
-          let branch = document.getElementById("branch").value;
-          let githubLink = document.getElementById("github_link").value;
-          let linkedinLink = document.getElementById("linkedin_link").value;
-          if (email == "" || regNo == "" || name == "" || branch == "") {
-            alert("Please fill all the fields");
+      <script>
+        let uploadBtn = document.getElementById("upload_btn");
+        uploadBtn.addEventListener("click", () => {
+          let pass = document.getElementById("password").value;
+          let cpass = document.getElementById("cpassword").value;
+          if (pass != cpass) {
+            alert("Passwords do not match");
             return;
           } else {
-            formData.append("email", email);
-            formData.append("regNo", regNo);
-            formData.append("password", password);
-            formData.append("name", name);
-            formData.append("branch", branch);
-            formData.append("githubLink", githubLink);
-            formData.append("linkedinLink", linkedinLink);
-            fetch("/register/student", {
-              method: "POST",
-              body: formData,
-            })
-              .then((res) => (document.location.href = "/projects/all"))
-              .catch((err) => {console.log(err);alert("Error Please try again later")});
+            let email = document.getElementById("email").value;
+            let regNo = document.getElementById("regNo").value;
+            let name = document.getElementById("name").value;
+            let branch = document.getElementById("branch").value;
+            let githubLink = document.getElementById("github_link").value;
+            let linkedinLink = document.getElementById("linkedin_link").value;
+            if (email == "" || regNo == "" || name == "" || branch == "") {
+              alert("Please fill all the fields");
+              return;
+            } else {
+              formData.append("email", email);
+              formData.append("regNo", regNo);
+              formData.append("password", password);
+              formData.append("name", name);
+              formData.append("branch", branch);
+              formData.append("githubLink", githubLink);
+              formData.append("linkedinLink", linkedinLink);
+              fetch("/register/student", {
+                method: "POST",
+                body: formData,
+              })
+                .then((res) => (document.location.href = "/projects/all"))
+                .catch((err) => { console.log(err); alert("Error Please try again later") });
+            }
           }
-        }
 
-        let formData = new FormData();
-      });
-    </script>
-  </body>
+          let formData = new FormData();
+        });
+      </script>
+      <br>
+      <br>
+      <br>
+      
+      <%- include('./partials/footer.ejs') %> 
+</body>
+
 </html>
